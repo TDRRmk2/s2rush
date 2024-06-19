@@ -949,12 +949,9 @@ AniIDSonAni_Lying		= id(SonAni_Lying_ptr)		; 32 ; $20 ; Exclusive to Sonic
 AniIDSonAni_LieDown		= id(SonAni_LieDown_ptr)	; 33 ; $21 ; Exclusive to Sonic
 
 
-offset :=	TailsAniData
+offset :=	SonicAniData
 ptrsize :=	2
 idstart :=	0
-
-AniIDTailsAni_HaulAss		= id(TailsAni_HaulAss_ptr)	; 31 ; $1F
-AniIDTailsAni_Fly		= id(TailsAni_Fly_ptr)		; 32 ; $20
 
 
 ; Other sizes
@@ -1519,7 +1516,7 @@ Camera_X_pos_coarse_End:
 Camera_X_pos_coarse_P2:		ds.w	1
 Camera_X_pos_coarse_P2_End:
 
-Tails_LastLoadedDPLC:		ds.b	1	; mapping frame number when Tails last had his tiles requested to be transferred from ROM to VRAM. can be set to a dummy value like -1 to force a refresh DMA.
+Blaze_LastLoadedDPLC:		ds.b	1	; mapping frame number when Tails last had his tiles requested to be transferred from ROM to VRAM. can be set to a dummy value like -1 to force a refresh DMA.
 TailsTails_LastLoadedDPLC:	ds.b	1	; mapping frame number when Tails' tails last had their tiles requested to be transferred from ROM to VRAM. can be set to a dummy value like -1 to force a refresh DMA.
 ButtonVine_Trigger:		ds.b	$10	; 16 bytes flag array, #subtype byte set when button/vine of respective subtype activated
 Anim_Counters:			ds.b	$10	; $FFFFF7F0-$FFFFF7FF
@@ -2502,8 +2499,8 @@ ArtTile_ArtNem_Powerups               = $0680
 ArtTile_ArtNem_Ring                   = $06BC
 ArtTile_ArtNem_HUD                    = ArtTile_ArtNem_Powerups + $4A
 ArtTile_ArtUnc_Sonic                  = $0780
-ArtTile_ArtUnc_Tails                  = $07A0
-ArtTile_ArtUnc_Tails_Tails            = $07B0
+ArtTile_ArtUnc_Blaze                  = $07A0
+ArtTile_ArtUnc_Tails_Tails            = $07B0 ; might use this for something else
 
 ; ---------------------------------------------------------------------------
 ; HUD. The HUD components are linked in a chain, and linked to
