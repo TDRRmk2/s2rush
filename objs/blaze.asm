@@ -260,9 +260,9 @@ BlzAni_Roll2:	dc.b $FE,$3D,$41,$3E,$41,$3F,$41,$40,$41,$FF
 BlzAni_Push:	dc.b $FD,$48,$49,$4A,$4B,$FF,$FF,$FF,$FF,$FF
 	rev02even
 BlzAni_Wait:
-	dc.b   $17,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1, 2, 3, 3, 3, 4, $FE,  2
+	dc.b   $17,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1, 3, 2, 3, 2, 3, 2, 4, 5, $FE,  2
 	rev02even
-BlzAni_Balance:	dc.b   9,$CC,$CD,$CE,$CD,$FF
+BlzAni_Balance:	dc.b   16,$C8,$C9,$FF
 	rev02even
 BlzAni_LookUp:	dc.b   5, $C, $FF
 	rev02even
@@ -274,9 +274,9 @@ BlzAni_Blink:	dc.b   1,  2,$FD,  0
 	rev02even
 BlzAni_GetUp:	dc.b   3, $A,$FD,  0
 	rev02even
-BlzAni_Balance2:dc.b   3,$C8,$C9,$CA,$CB,$FF
+BlzAni_Balance2:dc.b   16,$C8,$C9,$FF
 	rev02even
-BlzAni_Stop:	dc.b   5,$D2,$D3,$D4,$D5,$FD,  0 ; halt/skidding animation
+BlzAni_Stop:	dc.b   5,$D2,$D3,$FF ; halt/skidding animation
 	rev02even
 BlzAni_Float:	dc.b   7,$54,$59,$FF
 	rev02even
@@ -306,9 +306,9 @@ BlzAni_Slide:	dc.b   9,$4E,$4F,$FF
 	rev02even
 BlzAni_Blank:	dc.b $77,  0,$FD,  0
 	rev02even
-BlzAni_Balance3:dc.b $13,$D0,$D1,$FF
+BlzAni_Balance3:dc.b   16,$C8,$C9,$FF
 	rev02even
-BlzAni_Balance4:dc.b   3,$CF,$C8,$C9,$CA,$CB,$FE,  4
+BlzAni_Balance4:dc.b   16,$C8,$C9,$FF
 	rev02even
 BlzAni_Lying:	dc.b   9,  8,  9,$FF
 	rev02even
