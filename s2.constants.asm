@@ -2500,7 +2500,7 @@ ArtTile_ArtNem_Ring                   = $06BC
 ArtTile_ArtNem_HUD                    = ArtTile_ArtNem_Powerups + $4A
 ArtTile_ArtUnc_Sonic                  = $0780
 ArtTile_ArtUnc_Blaze                  = $07A0
-ArtTile_ArtUnc_Tails_Tails            = $07B0 ; might use this for something else
+;ArtTile_ArtUnc_Tails_Tails            = $07B0 ; might use this for something else
 
 ; ---------------------------------------------------------------------------
 ; HUD. The HUD components are linked in a chain, and linked to

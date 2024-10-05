@@ -80,10 +80,12 @@ Obj01_Control:
 	clr.b	(Control_Locked).w		; unlock control
 	rts
 ; -----------------------------------------------------------------------
-+	tst.b	(Control_Locked).w	; are controls locked?
-	bne.s	+			; if yes, branch
-	move.w	(Ctrl_1).w,(Ctrl_1_Logical).w	; copy new held buttons, to enable joypad control
-+
++	
+	bsr		SetupPlayerInput
+	;tst.b	(Control_Locked).w	; are controls locked?
+	;bne.s	+			; if yes, branch
+	;move.w	(Ctrl_1).w,(Ctrl_1_Logical).w	; copy new held buttons, to enable joypad control
+;+
 	btst	#0,obj_control(a0)	; is Sonic interacting with another object that holds him in place or controls his movement somehow?
 	bne.s	+			; if yes, branch to skip Sonic's control
 	moveq	#0,d0
@@ -2183,6 +2185,8 @@ Obj01_Respawning:
 
 ; loc_1B350:
 Sonic_Animate:
+	cmpi.b	#02, id(a0)
+	beq		Blaze_Animate
 	lea	(SonicAniData).l,a1
 	tst.b	(Super_Sonic_flag).w
 	beq.s	+
@@ -2202,6 +2206,7 @@ SAnim_Do:
 	adda.w	(a1,d0.w),a1	; calculate address of appropriate animation script
 	move.b	(a1),d0
 	bmi.s	SAnim_WalkRun	; if animation is walk/run/roll/jump, branch
+SAnim_DoCont:
 	move.b	status(a0),d1
 	andi.b	#1,d1
 	andi.b	#$FC,render_flags(a0)
