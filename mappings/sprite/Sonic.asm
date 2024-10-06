@@ -213,6 +213,60 @@ MapUnc_Sonic: mappingsTable
 	mappingsTableEntry.w	MapUnc_Sonic_211
 	mappingsTableEntry.w	MapUnc_Sonic_212
 	mappingsTableEntry.w	MapUnc_Sonic_213
+	mappingsTableEntry.w	MapUnc_Sonic_214
+	mappingsTableEntry.w	MapUnc_Sonic_215
+	mappingsTableEntry.w	MapUnc_Sonic_216
+	mappingsTableEntry.w	MapUnc_Sonic_217
+	mappingsTableEntry.w	MapUnc_Sonic_218
+	mappingsTableEntry.w	MapUnc_Sonic_219
+	mappingsTableEntry.w	MapUnc_Sonic_220
+	mappingsTableEntry.w	MapUnc_Sonic_221
+	mappingsTableEntry.w	MapUnc_Sonic_222
+	mappingsTableEntry.w	MapUnc_Sonic_223
+	mappingsTableEntry.w	MapUnc_Sonic_224
+	mappingsTableEntry.w	MapUnc_Sonic_225
+	mappingsTableEntry.w	MapUnc_Sonic_226
+	mappingsTableEntry.w	MapUnc_Sonic_227
+	mappingsTableEntry.w	MapUnc_Sonic_228
+	mappingsTableEntry.w	MapUnc_Sonic_229
+	mappingsTableEntry.w	MapUnc_Sonic_230
+	mappingsTableEntry.w	MapUnc_Sonic_231
+	mappingsTableEntry.w	MapUnc_Sonic_232
+	mappingsTableEntry.w	MapUnc_Sonic_233
+	mappingsTableEntry.w	MapUnc_Sonic_234
+	mappingsTableEntry.w	MapUnc_Sonic_235
+	mappingsTableEntry.w	MapUnc_Sonic_236
+	mappingsTableEntry.w	MapUnc_Sonic_237
+	mappingsTableEntry.w	MapUnc_Sonic_238
+	mappingsTableEntry.w	MapUnc_Sonic_239
+	mappingsTableEntry.w	MapUnc_Sonic_240
+	mappingsTableEntry.w	MapUnc_Sonic_241
+	mappingsTableEntry.w	MapUnc_Sonic_242
+	mappingsTableEntry.w	MapUnc_Sonic_243
+	mappingsTableEntry.w	MapUnc_Sonic_244
+	mappingsTableEntry.w	MapUnc_Sonic_245
+	mappingsTableEntry.w	MapUnc_Sonic_246
+	mappingsTableEntry.w	MapUnc_Sonic_247
+	mappingsTableEntry.w	MapUnc_Sonic_248
+	mappingsTableEntry.w	MapUnc_Sonic_249
+	mappingsTableEntry.w	MapUnc_Sonic_250
+	mappingsTableEntry.w	MapUnc_Sonic_251
+	mappingsTableEntry.w	MapUnc_Sonic_252
+	mappingsTableEntry.w	MapUnc_Sonic_253
+	mappingsTableEntry.w	MapUnc_Sonic_254
+	mappingsTableEntry.w	MapUnc_Sonic_255
+	mappingsTableEntry.w	MapUnc_Sonic_256
+	mappingsTableEntry.w	MapUnc_Sonic_257
+	mappingsTableEntry.w	MapUnc_Sonic_258
+	mappingsTableEntry.w	MapUnc_Sonic_259
+	mappingsTableEntry.w	MapUnc_Sonic_260
+	mappingsTableEntry.w	MapUnc_Sonic_261
+	mappingsTableEntry.w	MapUnc_Sonic_262
+	mappingsTableEntry.w	MapUnc_Sonic_263
+	mappingsTableEntry.w	MapUnc_Sonic_264
+	mappingsTableEntry.w	MapUnc_Sonic_265
+	mappingsTableEntry.w	MapUnc_Sonic_266
+	mappingsTableEntry.w	MapUnc_Sonic_267
 
 MapUnc_Sonic_0:	spriteHeader
 MapUnc_Sonic_0_End
@@ -223,118 +277,106 @@ MapUnc_Sonic_1:	spriteHeader
 MapUnc_Sonic_1_End
 
 MapUnc_Sonic_2:	spriteHeader
- spritePiece -$10, -$14, 3, 4, 0, 0, 0, 0, 0
- spritePiece -8, $C, 3, 2, $C, 0, 0, 0, 0
+ spritePiece -$10, -$13, 3, 4, 0, 0, 0, 0, 0
+ spritePiece -8, $D, 3, 1, $C, 0, 0, 0, 0
 MapUnc_Sonic_2_End
 
 MapUnc_Sonic_3:	spriteHeader
- spritePiece -$10, -$14, 1, 4, 0, 0, 0, 0, 0
- spritePiece -8, -$14, 2, 2, 4, 0, 0, 0, 0
- spritePiece -8, -4, 2, 2, 8, 0, 0, 0, 0
- spritePiece -8, $C, 3, 2, $C, 0, 0, 0, 0
+ spritePiece -$10, -$12, 3, 4, 0, 0, 0, 0, 0
+ spritePiece -8, $E, 3, 1, $C, 0, 0, 0, 0
 MapUnc_Sonic_3_End
 
 MapUnc_Sonic_4:	spriteHeader
- spritePiece -$10, -$14, 1, 4, 0, 0, 0, 0, 0
- spritePiece -8, -$14, 2, 2, 4, 0, 0, 0, 0
- spritePiece -8, -4, 2, 2, 8, 0, 0, 0, 0
- spritePiece -8, $C, 3, 2, $C, 0, 0, 0, 0
+ spritePiece -$10, -$12, 3, 4, 0, 0, 0, 0, 0
+ spritePiece -8, $E, 3, 1, $C, 0, 0, 0, 0
 MapUnc_Sonic_4_End
 
 MapUnc_Sonic_5:	spriteHeader
- spritePiece -$10, -$14, 1, 4, 0, 0, 0, 0, 0
- spritePiece -8, -$14, 2, 2, 4, 0, 0, 0, 0
- spritePiece -8, -4, 2, 2, 8, 0, 0, 0, 0
- spritePiece -8, $C, 1, 2, $C, 0, 0, 0, 0
- spritePiece 0, $C, 2, 2, $E, 0, 0, 0, 0
+ spritePiece -$10, -$12, 3, 4, 0, 0, 0, 0, 0
+ spritePiece -8, $E, 3, 1, $C, 0, 0, 0, 0
 MapUnc_Sonic_5_End
 
 MapUnc_Sonic_6:	spriteHeader
- spritePiece -$10, -$14, 1, 4, 0, 0, 0, 0, 0
- spritePiece -8, -$14, 2, 4, 4, 0, 0, 0, 0
- spritePiece -8, $C, 3, 2, $C, 0, 0, 0, 0
+ spritePiece -$10, -$12, 3, 4, 0, 0, 0, 0, 0
+ spritePiece -8, $E, 3, 1, $C, 0, 0, 0, 0
 MapUnc_Sonic_6_End
 
 MapUnc_Sonic_7:	spriteHeader
- spritePiece -$10, -$C, 3, 4, 0, 0, 0, 0, 0
- spritePiece 8, 4, 1, 2, $C, 0, 0, 0, 0
+ spritePiece -$F, -$B, 3, 4, 0, 0, 0, 0, 0
+ spritePiece 9, 5, 1, 2, $C, 0, 0, 0, 0
 MapUnc_Sonic_7_End
 
 MapUnc_Sonic_8:	spriteHeader
- spritePiece -$18, -$C, 3, 4, 0, 0, 0, 0, 0
- spritePiece 0, 4, 2, 2, $C, 0, 0, 0, 0
+ spritePiece -$18, -4, 3, 3, 0, 0, 0, 0, 0
+ spritePiece 0, 4, 2, 2, 9, 0, 0, 0, 0
 MapUnc_Sonic_8_End
 
 MapUnc_Sonic_9:	spriteHeader
- spritePiece -$18, -$C, 3, 4, 0, 0, 0, 0, 0
- spritePiece 0, 4, 2, 2, $C, 0, 0, 0, 0
+ spritePiece -$19, -4, 4, 3, 0, 0, 0, 0, 0
+ spritePiece 7, $C, 1, 1, $C, 0, 0, 0, 0
 MapUnc_Sonic_9_End
 
 MapUnc_Sonic_10:	spriteHeader
- spritePiece -$10, -$1C, 3, 4, 0, 0, 0, 0, 0
- spritePiece -$10, 4, 4, 2, $C, 0, 0, 0, 0
+ spritePiece -$12, -$F, 4, 4, 0, 0, 0, 0, 0
+ spritePiece -$A, $11, 3, 1, $10, 0, 0, 0, 0
 MapUnc_Sonic_10_End
 
 MapUnc_Sonic_11:	spriteHeader
- spritePiece -8, -$1C, 2, 2, 0, 0, 0, 0, 0
- spritePiece -$10, -$14, 1, 4, 4, 0, 0, 0, 0
- spritePiece -8, -$C, 3, 2, 8, 0, 0, 0, 0
- spritePiece -8, 4, 3, 2, $E, 0, 0, 0, 0
+ spritePiece -$15, -$12, 4, 3, 0, 0, 0, 0, 0
+ spritePiece -$D, 6, 3, 2, $C, 0, 0, 0, 0
 MapUnc_Sonic_11_End
 
 MapUnc_Sonic_12:	spriteHeader
- spritePiece -$10, -$14, 1, 4, 0, 0, 0, 0, 0
- spritePiece -8, -$1C, 2, 2, 4, 0, 0, 0, 0
- spritePiece -8, -$C, 2, 2, 8, 0, 0, 0, 0
- spritePiece -8, 4, 3, 2, $C, 0, 0, 0, 0
+ spritePiece -$10, -$12, 3, 4, 0, 0, 0, 0, 0
+ spritePiece -8, $E, 3, 1, $C, 0, 0, 0, 0
 MapUnc_Sonic_12_End
 
 MapUnc_Sonic_13:	spriteHeader
- spritePiece -$12, -$15, 4, 2, 0, 0, 0, 0, 0
- spritePiece -$14, 3, 1, 2, 8, 0, 0, 0, 0
- spritePiece -$C, -5, 4, 4, $A, 0, 0, 0, 0
+ spritePiece -$18, $A, 2, 1, 0, 0, 0, 0, 0
+ spritePiece -$10, -$16, 4, 4, 2, 0, 0, 0, 0
+ spritePiece 8, $A, 1, 1, $12, 0, 0, 0, 0
+ spritePiece $10, 2, 1, 1, $13, 0, 0, 0, 0
 MapUnc_Sonic_13_End
 
 MapUnc_Sonic_14:	spriteHeader
- spritePiece -$12, -$14, 4, 2, 0, 0, 0, 0, 0
- spritePiece -$14, 4, 1, 2, 8, 0, 0, 0, 0
- spritePiece -$C, -4, 3, 4, $A, 0, 0, 0, 0
- spritePiece $C, 4, 1, 2, $16, 0, 0, 0, 0
+ spritePiece -$1A, $B, 4, 1, 0, 0, 0, 0, 0
+ spritePiece -$12, -$15, 4, 4, 4, 0, 0, 0, 0
+ spritePiece 6, $B, 2, 1, $14, 0, 0, 0, 0
 MapUnc_Sonic_14_End
 
 MapUnc_Sonic_15:	spriteHeader
- spritePiece -$13, -$13, 4, 2, 0, 0, 0, 0, 0
- spritePiece -$C, -3, 3, 2, 8, 0, 0, 0, 0
- spritePiece -9, $D, 2, 2, $E, 0, 0, 0, 0
+ spritePiece -$11, -$13, 4, 3, 0, 0, 0, 0, 0
+ spritePiece -9, 5, 2, 2, $C, 0, 0, 0, 0
 MapUnc_Sonic_15_End
 
 MapUnc_Sonic_16:	spriteHeader
- spritePiece -$C, -$14, 3, 2, 0, 0, 0, 0, 0
- spritePiece -$12, -4, 4, 4, 6, 0, 0, 0, 0
+ spritePiece -$12, -$C, 4, 4, 0, 0, 0, 0, 0
+ spritePiece -$A, -$14, 3, 1, $10, 0, 0, 0, 0
 MapUnc_Sonic_16_End
 
 MapUnc_Sonic_17:	spriteHeader
- spritePiece -$C, -$15, 3, 2, 0, 0, 0, 0, 0
- spritePiece -$12, -5, 4, 4, 6, 0, 0, 0, 0
- spritePiece $E, -5, 1, 2, $16, 0, 0, 0, 0
+ spritePiece -$12, -$D, 4, 3, 0, 0, 0, 0, 0
+ spritePiece -$12, $B, 2, 1, $C, 0, 0, 0, 0
+ spritePiece -$A, -$15, 3, 1, $E, 0, 0, 0, 0
+ spritePiece 6, $B, 1, 1, $11, 0, 0, 0, 0
+ spritePiece $E, -5, 1, 2, $12, 0, 0, 0, 0
 MapUnc_Sonic_17_End
 
 MapUnc_Sonic_18:	spriteHeader
- spritePiece -$C, -$14, 3, 2, 0, 0, 0, 0, 0
- spritePiece -$14, 4, 1, 2, 6, 0, 0, 0, 0
- spritePiece -$C, -4, 3, 4, 8, 0, 0, 0, 0
- spritePiece $C, 4, 1, 2, $14, 0, 0, 0, 0
+ spritePiece -$14, 4, 2, 2, 0, 0, 0, 0, 0
+ spritePiece -$C, -$14, 3, 3, 4, 0, 0, 0, 0
+ spritePiece -4, 4, 3, 1, $D, 0, 0, 0, 0
+ spritePiece 4, $C, 2, 1, $10, 0, 0, 0, 0
 MapUnc_Sonic_18_End
 
 MapUnc_Sonic_19:	spriteHeader
- spritePiece -$13, -$13, 4, 2, 0, 0, 0, 0, 0
- spritePiece -$C, -3, 3, 2, 8, 0, 0, 0, 0
- spritePiece -9, $D, 2, 2, $E, 0, 0, 0, 0
+ spritePiece -$10, -$13, 4, 3, 0, 0, 0, 0, 0
+ spritePiece -$10, 5, 3, 2, $C, 0, 0, 0, 0
 MapUnc_Sonic_19_End
 
 MapUnc_Sonic_20:	spriteHeader
- spritePiece -$12, -$14, 4, 2, 0, 0, 0, 0, 0
- spritePiece -$D, -4, 3, 4, 8, 0, 0, 0, 0
+ spritePiece -$E, -$14, 4, 3, 0, 0, 0, 0, 0
+ spritePiece -$E, 4, 3, 2, $C, 0, 0, 0, 0
 MapUnc_Sonic_20_End
 
 MapUnc_Sonic_21:	spriteHeader
@@ -502,23 +544,23 @@ MapUnc_Sonic_44:	spriteHeader
 MapUnc_Sonic_44_End
 
 MapUnc_Sonic_45:	spriteHeader
- spritePiece -8, -$12, 3, 2, 0, 0, 0, 0, 0
- spritePiece -$10, -2, 4, 4, 6, 0, 0, 0, 0
+ spritePiece -$10, -4, 4, 3, 0, 0, 0, 0, 0
+ spritePiece -8, -$14, 3, 2, $C, 0, 0, 0, 0
 MapUnc_Sonic_45_End
 
 MapUnc_Sonic_46:	spriteHeader
- spritePiece -8, -$12, 3, 2, 0, 0, 0, 0, 0
- spritePiece -$10, -2, 4, 4, 6, 0, 0, 0, 0
+ spritePiece -$10, -4, 4, 3, 0, 0, 0, 0, 0
+ spritePiece -8, -$14, 3, 2, $C, 0, 0, 0, 0
 MapUnc_Sonic_46_End
 
 MapUnc_Sonic_47:	spriteHeader
- spritePiece -8, -$12, 3, 2, 0, 0, 0, 0, 0
- spritePiece -$10, -2, 4, 4, 6, 0, 0, 0, 0
+ spritePiece -$10, -4, 4, 3, 0, 0, 0, 0, 0
+ spritePiece -8, -$14, 3, 2, $C, 0, 0, 0, 0
 MapUnc_Sonic_47_End
 
 MapUnc_Sonic_48:	spriteHeader
- spritePiece -8, -$12, 3, 2, 0, 0, 0, 0, 0
- spritePiece -$10, -2, 4, 4, 6, 0, 0, 0, 0
+ spritePiece -$10, -4, 4, 3, 0, 0, 0, 0, 0
+ spritePiece -8, -$14, 3, 2, $C, 0, 0, 0, 0
 MapUnc_Sonic_48_End
 
 MapUnc_Sonic_49:	spriteHeader
@@ -662,7 +704,8 @@ MapUnc_Sonic_76:	spriteHeader
 MapUnc_Sonic_76_End
 
 MapUnc_Sonic_77:	spriteHeader
- spritePiece -$E, -$C, 4, 4, 0, 0, 0, 0, 0
+ spritePiece -$D, 0, 4, 3, 0, 0, 0, 0, 0
+ spritePiece -5, -8, 3, 1, $C, 0, 0, 0, 0
 MapUnc_Sonic_77_End
 
 MapUnc_Sonic_78:	spriteHeader
@@ -1546,5 +1589,316 @@ MapUnc_Sonic_213:	spriteHeader
  spritePiece -$C, -$14, 3, 2, 0, 0, 0, 0, 0
  spritePiece -9, -4, 3, 4, 6, 0, 0, 0, 0
 MapUnc_Sonic_213_End
+
+MapUnc_Sonic_214:	spriteHeader
+ spritePiece -$14, -$18, 3, 4, 0, 0, 0, 0, 0
+ spritePiece -4, 8, 1, 2, $C, 0, 0, 0, 0
+ spritePiece 4, -$10, 2, 3, $E, 0, 0, 0, 0
+MapUnc_Sonic_214_End
+
+MapUnc_Sonic_215:	spriteHeader
+ spritePiece -$18, -$10, 4, 3, 0, 0, 0, 0, 0
+ spritePiece -$10, -$18, 2, 1, $C, 0, 0, 0, 0
+ spritePiece -8, 8, 1, 2, $E, 0, 0, 0, 0
+ spritePiece 8, -8, 2, 2, $10, 0, 0, 0, 0
+MapUnc_Sonic_215_End
+
+MapUnc_Sonic_216:	spriteHeader
+ spritePiece -$14, -$14, 4, 3, 0, 0, 0, 0, 0
+ spritePiece -$C, 4, 4, 1, $C, 0, 0, 0, 0
+ spritePiece 4, $C, 2, 1, $10, 0, 0, 0, 0
+MapUnc_Sonic_216_End
+
+MapUnc_Sonic_217:	spriteHeader
+ spritePiece -$14, -$14, 3, 4, 0, 0, 0, 0, 0
+ spritePiece -4, $C, 2, 1, $C, 0, 0, 0, 0
+ spritePiece 4, -$C, 1, 3, $E, 0, 0, 0, 0
+ spritePiece $C, -4, 1, 2, $11, 0, 0, 0, 0
+MapUnc_Sonic_217_End
+
+MapUnc_Sonic_218:	spriteHeader
+ spritePiece -$14, -$18, 3, 3, 0, 0, 0, 0, 0
+ spritePiece -$C, 0, 2, 2, 9, 0, 0, 0, 0
+ spritePiece -4, $10, 1, 1, $D, 0, 0, 0, 0
+ spritePiece 4, -$10, 2, 2, $E, 0, 0, 0, 0
+ spritePiece 4, 0, 1, 1, $12, 0, 0, 0, 0
+MapUnc_Sonic_218_End
+
+MapUnc_Sonic_219:	spriteHeader
+ spritePiece -$18, -$10, 4, 3, 0, 0, 0, 0, 0
+ spritePiece -$10, -$18, 2, 1, $C, 0, 0, 0, 0
+ spritePiece -8, 8, 1, 2, $E, 0, 0, 0, 0
+ spritePiece 8, -8, 2, 2, $10, 0, 0, 0, 0
+MapUnc_Sonic_219_End
+
+MapUnc_Sonic_220:	spriteHeader
+ spritePiece -$14, -$14, 4, 3, 0, 0, 0, 0, 0
+ spritePiece -$C, 4, 4, 1, $C, 0, 0, 0, 0
+ spritePiece 4, $C, 2, 1, $10, 0, 0, 0, 0
+MapUnc_Sonic_220_End
+
+MapUnc_Sonic_221:	spriteHeader
+ spritePiece -$14, -$14, 3, 3, 0, 0, 0, 0, 0
+ spritePiece -$C, 4, 4, 1, 9, 0, 0, 0, 0
+ spritePiece -4, $C, 3, 1, $D, 0, 0, 0, 0
+ spritePiece 4, -$C, 1, 2, $10, 0, 0, 0, 0
+MapUnc_Sonic_221_End
+
+MapUnc_Sonic_222:	spriteHeader
+ spritePiece -$14, -$14, 3, 3, 0, 0, 0, 0, 0
+ spritePiece -$C, 4, 4, 2, 9, 0, 0, 0, 0
+ spritePiece 4, -$C, 1, 2, $11, 0, 0, 0, 0
+ spritePiece $C, -4, 1, 1, $13, 0, 0, 0, 0
+MapUnc_Sonic_222_End
+
+MapUnc_Sonic_223:	spriteHeader
+ spritePiece -$14, -$14, 3, 3, 0, 0, 0, 0, 0
+ spritePiece -$C, 4, 3, 2, 9, 0, 0, 0, 0
+ spritePiece 4, -4, 2, 1, $F, 0, 0, 0, 0
+ spritePiece $C, 4, 1, 1, $11, 0, 0, 0, 0
+MapUnc_Sonic_223_End
+
+MapUnc_Sonic_224:	spriteHeader
+ spritePiece -$14, -$14, 3, 3, 0, 0, 0, 0, 0
+ spritePiece -$C, 4, 3, 2, 9, 0, 0, 0, 0
+ spritePiece 4, -$C, 1, 2, $F, 0, 0, 0, 0
+ spritePiece $C, -4, 1, 2, $11, 0, 0, 0, 0
+MapUnc_Sonic_224_End
+
+MapUnc_Sonic_225:	spriteHeader
+ spritePiece -$14, -$14, 4, 2, 0, 0, 0, 0, 0
+ spritePiece -$C, -4, 4, 3, 8, 0, 0, 0, 0
+MapUnc_Sonic_225_End
+
+MapUnc_Sonic_226:	spriteHeader
+ spritePiece -$10, -$10, 4, 4, 0, 0, 0, 0, 0
+MapUnc_Sonic_226_End
+
+MapUnc_Sonic_227:	spriteHeader
+ spritePiece -$10, -$10, 4, 4, 0, 0, 0, 0, 0
+MapUnc_Sonic_227_End
+
+MapUnc_Sonic_228:	spriteHeader
+ spritePiece -$10, -$10, 4, 4, 0, 0, 0, 0, 0
+MapUnc_Sonic_228_End
+
+MapUnc_Sonic_229:	spriteHeader
+ spritePiece -$10, -$10, 4, 4, 0, 0, 0, 0, 0
+MapUnc_Sonic_229_End
+
+MapUnc_Sonic_230:	spriteHeader
+ spritePiece -$10, -$10, 4, 4, 0, 0, 0, 0, 0
+MapUnc_Sonic_230_End
+
+MapUnc_Sonic_231:	spriteHeader
+ spritePiece -$C, -$10, 3, 4, 0, 0, 0, 0, 0
+ spritePiece -$14, -8, 1, 2, $C, 0, 0, 0, 0
+ spritePiece $C, -8, 1, 3, $E, 0, 0, 0, 0
+MapUnc_Sonic_231_End
+
+MapUnc_Sonic_232:	spriteHeader
+ spritePiece -$14, -$10, 4, 4, 0, 0, 0, 0, 0
+ spritePiece $C, -8, 1, 3, $10, 0, 0, 0, 0
+MapUnc_Sonic_232_End
+
+MapUnc_Sonic_233:	spriteHeader
+ spritePiece -$14, -4, 4, 3, 0, 0, 0, 0, 0
+ spritePiece -$C, -$14, 3, 2, $C, 0, 0, 0, 0
+ spritePiece $C, 4, 1, 2, $12, 0, 0, 0, 0
+MapUnc_Sonic_233_End
+
+MapUnc_Sonic_234:	spriteHeader
+ spritePiece -$10, -$14, 4, 4, 0, 0, 0, 0, 0
+ spritePiece -8, $C, 2, 1, $10, 0, 0, 0, 0
+MapUnc_Sonic_234_End
+
+MapUnc_Sonic_235:	spriteHeader
+ spritePiece -$10, -$14, 4, 3, 0, 0, 0, 0, 0
+ spritePiece -$10, 4, 3, 2, $C, 0, 0, 0, 0
+MapUnc_Sonic_235_End
+
+MapUnc_Sonic_236:	spriteHeader
+ spritePiece -$10, -$14, 4, 4, 0, 0, 0, 0, 0
+ spritePiece -8, $C, 2, 1, $10, 0, 0, 0, 0
+MapUnc_Sonic_236_End
+
+MapUnc_Sonic_237:	spriteHeader
+ spritePiece -$C, -$18, 3, 4, 0, 0, 0, 0, 0
+ spritePiece -4, 8, 2, 2, $C, 0, 0, 0, 0
+MapUnc_Sonic_237_End
+
+MapUnc_Sonic_238:	spriteHeader
+ spritePiece -$10, -$14, 4, 4, 0, 0, 0, 0, 0
+ spritePiece -$10, $C, 3, 1, $10, 0, 0, 0, 0
+MapUnc_Sonic_238_End
+
+MapUnc_Sonic_239:	spriteHeader
+ spritePiece -$14, -$C, 4, 4, 0, 0, 0, 0, 0
+ spritePiece -$C, -$14, 3, 1, $10, 0, 0, 0, 0
+ spritePiece $C, -$C, 1, 1, $13, 0, 0, 0, 0
+MapUnc_Sonic_239_End
+
+MapUnc_Sonic_240:	spriteHeader
+ spritePiece -$C, -$14, 4, 4, 0, 0, 0, 0, 0
+ spritePiece -$14, -4, 1, 1, $10, 0, 0, 0, 0
+ spritePiece -$C, $C, 2, 1, $11, 0, 0, 0, 0
+MapUnc_Sonic_240_End
+
+MapUnc_Sonic_241:	spriteHeader
+ spritePiece -$10, -$C, 4, 3, 0, 0, 0, 0, 0
+ spritePiece -$10, $C, 2, 1, $C, 0, 0, 0, 0
+ spritePiece -8, -$14, 3, 1, $E, 0, 0, 0, 0
+MapUnc_Sonic_241_End
+
+MapUnc_Sonic_242:	spriteHeader
+ spritePiece -$14, 4, 3, 2, 0, 0, 0, 0, 0
+ spritePiece -$C, -$14, 4, 3, 6, 0, 0, 0, 0
+MapUnc_Sonic_242_End
+
+MapUnc_Sonic_243:	spriteHeader
+ spritePiece -$10, -$14, 4, 4, 0, 0, 0, 0, 0
+ spritePiece -$10, $C, 2, 1, $10, 0, 0, 0, 0
+MapUnc_Sonic_243_End
+
+MapUnc_Sonic_244:	spriteHeader
+ spritePiece -$14, -$14, 4, 3, 0, 0, 0, 0, 0
+ spritePiece -$14, 4, 2, 2, $C, 0, 0, 0, 0
+ spritePiece $C, -$C, 1, 1, $10, 0, 0, 0, 0
+MapUnc_Sonic_244_End
+
+MapUnc_Sonic_245:	spriteHeader
+ spritePiece -$14, -$14, 4, 3, 0, 0, 0, 0, 0
+ spritePiece -$C, 4, 4, 1, $C, 0, 0, 0, 0
+ spritePiece -4, $C, 3, 1, $10, 0, 0, 0, 0
+MapUnc_Sonic_245_End
+
+MapUnc_Sonic_246:	spriteHeader
+ spritePiece -$14, -$C, 4, 2, 0, 0, 0, 0, 0
+ spritePiece -$C, -$14, 3, 1, 8, 0, 0, 0, 0
+ spritePiece -$C, 4, 4, 1, $B, 0, 0, 0, 0
+ spritePiece -4, $C, 3, 1, $F, 0, 0, 0, 0
+MapUnc_Sonic_246_End
+
+MapUnc_Sonic_247:	spriteHeader
+ spritePiece -$14, -$C, 4, 3, 0, 0, 0, 0, 0
+ spritePiece -$C, -$14, 3, 1, $C, 0, 0, 0, 0
+ spritePiece -4, $C, 3, 1, $F, 0, 0, 0, 0
+ spritePiece $C, 4, 1, 1, $12, 0, 0, 0, 0
+MapUnc_Sonic_247_End
+
+MapUnc_Sonic_248:	spriteHeader
+ spritePiece -$10, -$14, 4, 2, 0, 0, 0, 0, 0
+ spritePiece -8, -4, 3, 3, 8, 0, 0, 0, 0
+MapUnc_Sonic_248_End
+
+MapUnc_Sonic_249:	spriteHeader
+ spritePiece -$10, 4, 4, 2, 0, 0, 0, 0, 0
+ spritePiece -8, -$14, 3, 3, 8, 0, 0, 0, 0
+MapUnc_Sonic_249_End
+
+MapUnc_Sonic_250:	spriteHeader
+ spritePiece -$C, -$14, 3, 4, 0, 0, 0, 0, 0
+ spritePiece -$C, $C, 2, 1, $C, 0, 0, 0, 0
+MapUnc_Sonic_250_End
+
+MapUnc_Sonic_251:	spriteHeader
+ spritePiece -$10, 4, 4, 2, 0, 0, 0, 0, 0
+ spritePiece -8, -$14, 3, 3, 8, 0, 0, 0, 0
+MapUnc_Sonic_251_End
+
+MapUnc_Sonic_252:	spriteHeader
+ spritePiece -$C, -$14, 3, 4, 0, 0, 0, 0, 0
+ spritePiece -$C, $C, 2, 1, $C, 0, 0, 0, 0
+MapUnc_Sonic_252_End
+
+MapUnc_Sonic_253:	spriteHeader
+ spritePiece -$14, -$18, 4, 2, 0, 0, 0, 0, 0
+ spritePiece -$C, -8, 3, 3, 8, 0, 0, 0, 0
+ spritePiece -$C, $10, 1, 1, $11, 0, 0, 0, 0
+ spritePiece $C, -$18, 1, 2, $12, 0, 0, 0, 0
+ spritePiece $C, 8, 1, 1, $14, 0, 0, 0, 0
+MapUnc_Sonic_253_End
+
+MapUnc_Sonic_254:	spriteHeader
+ spritePiece -$14, -$14, 4, 2, 0, 0, 0, 0, 0
+ spritePiece -$14, 4, 4, 2, 8, 0, 0, 0, 0
+ spritePiece -$C, -4, 2, 1, $10, 0, 0, 0, 0
+ spritePiece $C, -$14, 1, 2, $12, 0, 0, 0, 0
+MapUnc_Sonic_254_End
+
+MapUnc_Sonic_255:	spriteHeader
+ spritePiece -$C, -$18, 3, 3, 0, 0, 0, 0, 0
+ spritePiece -$14, -$10, 1, 1, 9, 0, 0, 0, 0
+ spritePiece $C, -$10, 1, 2, $A, 0, 0, 0, 0
+ spritePiece -4, 0, 2, 3, $C, 0, 0, 0, 0
+ spritePiece -$C, 8, 1, 2, $12, 0, 0, 0, 0
+MapUnc_Sonic_255_End
+
+MapUnc_Sonic_256:	spriteHeader
+ spritePiece -$14, -$14, 3, 4, 0, 0, 0, 0, 0
+ spritePiece -4, $C, 3, 1, $C, 0, 0, 0, 0
+ spritePiece 4, 4, 2, 1, $F, 0, 0, 0, 0
+MapUnc_Sonic_256_End
+
+MapUnc_Sonic_257:	spriteHeader
+ spritePiece -$14, -$14, 3, 4, 0, 0, 0, 0, 0
+ spritePiece -4, $C, 3, 1, $C, 0, 0, 0, 0
+ spritePiece 4, 4, 2, 1, $F, 0, 0, 0, 0
+MapUnc_Sonic_257_End
+
+MapUnc_Sonic_258:	spriteHeader
+ spritePiece -8, -$C, 4, 3, 0, 0, 0, 0, 0
+ spritePiece -$18, -4, 2, 2, $C, 0, 0, 0, 0
+MapUnc_Sonic_258_End
+
+MapUnc_Sonic_259:	spriteHeader
+ spritePiece -8, -$C, 4, 3, 0, 0, 0, 0, 0
+ spritePiece -$18, -4, 2, 2, $C, 0, 0, 0, 0
+MapUnc_Sonic_259_End
+
+MapUnc_Sonic_260:	spriteHeader
+ spritePiece -$18, -$C, 4, 2, 0, 0, 0, 0, 0
+ spritePiece -$10, 4, 4, 1, 8, 0, 0, 0, 0
+ spritePiece 8, -$C, 2, 2, $C, 0, 0, 0, 0
+MapUnc_Sonic_260_End
+
+MapUnc_Sonic_261:	spriteHeader
+ spritePiece -$18, -$C, 4, 3, 0, 0, 0, 0, 0
+ spritePiece 8, -4, 2, 2, $C, 0, 0, 0, 0
+MapUnc_Sonic_261_End
+
+MapUnc_Sonic_262:	spriteHeader
+ spritePiece -$14, -$C, 4, 3, 0, 0, 0, 0, 0
+ spritePiece $C, -4, 1, 2, $C, 0, 0, 0, 0
+MapUnc_Sonic_262_End
+
+MapUnc_Sonic_263:	spriteHeader
+ spritePiece -$C, -$C, 4, 3, 0, 0, 0, 0, 0
+ spritePiece -$14, -4, 1, 2, $C, 0, 0, 0, 0
+MapUnc_Sonic_263_End
+
+MapUnc_Sonic_264:	spriteHeader
+ spritePiece -$18, -$10, 4, 3, 0, 0, 0, 0, 0
+ spritePiece 8, -$10, 1, 4, $C, 0, 0, 0, 0
+ spritePiece $10, -8, 1, 3, $10, 0, 0, 0, 0
+MapUnc_Sonic_264_End
+
+MapUnc_Sonic_265:	spriteHeader
+ spritePiece -$18, -$10, 4, 3, 0, 0, 0, 0, 0
+ spritePiece 8, -$10, 1, 4, $C, 0, 0, 0, 0
+ spritePiece $10, -8, 1, 3, $10, 0, 0, 0, 0
+MapUnc_Sonic_265_End
+
+MapUnc_Sonic_266:	spriteHeader
+ spritePiece -$C, -$18, 3, 4, 0, 0, 0, 0, 0
+ spritePiece -$C, 8, 2, 2, $C, 0, 0, 0, 0
+ spritePiece 4, 8, 1, 1, $10, 0, 0, 0, 0
+MapUnc_Sonic_266_End
+
+MapUnc_Sonic_267:	spriteHeader
+ spritePiece -$C, -$18, 3, 4, 0, 0, 0, 0, 0
+ spritePiece -$C, 8, 2, 2, $C, 0, 0, 0, 0
+ spritePiece 4, 8, 1, 1, $10, 0, 0, 0, 0
+MapUnc_Sonic_267_End
 
 	even

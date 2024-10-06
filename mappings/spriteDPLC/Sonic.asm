@@ -213,128 +213,152 @@ MapRUnc_Sonic: mappingsTable
 	mappingsTableEntry.w	MapRUnc_Sonic_211
 	mappingsTableEntry.w	MapRUnc_Sonic_212
 	mappingsTableEntry.w	MapRUnc_Sonic_213
+	mappingsTableEntry.w	MapRUnc_Sonic_214
+	mappingsTableEntry.w	MapRUnc_Sonic_215
+	mappingsTableEntry.w	MapRUnc_Sonic_216
+	mappingsTableEntry.w	MapRUnc_Sonic_217
+	mappingsTableEntry.w	MapRUnc_Sonic_218
+	mappingsTableEntry.w	MapRUnc_Sonic_219
+	mappingsTableEntry.w	MapRUnc_Sonic_220
+	mappingsTableEntry.w	MapRUnc_Sonic_221
+	mappingsTableEntry.w	MapRUnc_Sonic_222
+	mappingsTableEntry.w	MapRUnc_Sonic_223
+	mappingsTableEntry.w	MapRUnc_Sonic_224
+	mappingsTableEntry.w	MapRUnc_Sonic_225
+	mappingsTableEntry.w	MapRUnc_Sonic_226
+	mappingsTableEntry.w	MapRUnc_Sonic_227
+	mappingsTableEntry.w	MapRUnc_Sonic_228
+	mappingsTableEntry.w	MapRUnc_Sonic_229
+	mappingsTableEntry.w	MapRUnc_Sonic_230
+	mappingsTableEntry.w	MapRUnc_Sonic_231
+	mappingsTableEntry.w	MapRUnc_Sonic_232
+	mappingsTableEntry.w	MapRUnc_Sonic_233
+	mappingsTableEntry.w	MapRUnc_Sonic_234
+	mappingsTableEntry.w	MapRUnc_Sonic_235
+	mappingsTableEntry.w	MapRUnc_Sonic_236
+	mappingsTableEntry.w	MapRUnc_Sonic_237
+	mappingsTableEntry.w	MapRUnc_Sonic_238
+	mappingsTableEntry.w	MapRUnc_Sonic_239
+	mappingsTableEntry.w	MapRUnc_Sonic_240
+	mappingsTableEntry.w	MapRUnc_Sonic_241
+	mappingsTableEntry.w	MapRUnc_Sonic_242
+	mappingsTableEntry.w	MapRUnc_Sonic_243
+	mappingsTableEntry.w	MapRUnc_Sonic_244
+	mappingsTableEntry.w	MapRUnc_Sonic_245
+	mappingsTableEntry.w	MapRUnc_Sonic_246
+	mappingsTableEntry.w	MapRUnc_Sonic_247
+	mappingsTableEntry.w	MapRUnc_Sonic_248
+	mappingsTableEntry.w	MapRUnc_Sonic_249
+	mappingsTableEntry.w	MapRUnc_Sonic_250
+	mappingsTableEntry.w	MapRUnc_Sonic_251
+	mappingsTableEntry.w	MapRUnc_Sonic_252
+	mappingsTableEntry.w	MapRUnc_Sonic_253
+	mappingsTableEntry.w	MapRUnc_Sonic_254
+	mappingsTableEntry.w	MapRUnc_Sonic_255
+	mappingsTableEntry.w	MapRUnc_Sonic_256
+	mappingsTableEntry.w	MapRUnc_Sonic_257
+	mappingsTableEntry.w	MapRUnc_Sonic_258
+	mappingsTableEntry.w	MapRUnc_Sonic_259
+	mappingsTableEntry.w	MapRUnc_Sonic_260
+	mappingsTableEntry.w	MapRUnc_Sonic_261
+	mappingsTableEntry.w	MapRUnc_Sonic_262
+	mappingsTableEntry.w	MapRUnc_Sonic_263
+	mappingsTableEntry.w	MapRUnc_Sonic_264
+	mappingsTableEntry.w	MapRUnc_Sonic_265
+	mappingsTableEntry.w	MapRUnc_Sonic_266
+	mappingsTableEntry.w	MapRUnc_Sonic_267
 
 MapRUnc_Sonic_0:	dplcHeader
 MapRUnc_Sonic_0_End
 
 MapRUnc_Sonic_1:	dplcHeader
- dplcEntry $10, $A19
- dplcEntry 2, $A29
+ dplcEntry $10, $A2B
+ dplcEntry 2, $A3B
 MapRUnc_Sonic_1_End
 
 MapRUnc_Sonic_2:	dplcHeader
- dplcEntry $C, $14
- dplcEntry 6, $20
+ dplcEntry $F, $A3D
 MapRUnc_Sonic_2_End
 
 MapRUnc_Sonic_3:	dplcHeader
- dplcEntry 4, $26
- dplcEntry 4, $2A
- dplcEntry 4, $2E
- dplcEntry 6, $32
+ dplcEntry $F, $A4C
 MapRUnc_Sonic_3_End
 
 MapRUnc_Sonic_4:	dplcHeader
- dplcEntry 4, $26
- dplcEntry 4, $38
- dplcEntry 4, $2E
- dplcEntry 6, $32
+ dplcEntry $F, $A5B
 MapRUnc_Sonic_4_End
 
 MapRUnc_Sonic_5:	dplcHeader
- dplcEntry 4, $26
- dplcEntry 4, $38
- dplcEntry 4, $2E
- dplcEntry 2, $32
- dplcEntry 4, $3C
+ dplcEntry $F, $A6A
 MapRUnc_Sonic_5_End
 
 MapRUnc_Sonic_6:	dplcHeader
- dplcEntry 4, $26
- dplcEntry 8, $40
- dplcEntry 6, $32
+ dplcEntry $F, $A79
 MapRUnc_Sonic_6_End
 
 MapRUnc_Sonic_7:	dplcHeader
- dplcEntry $C, $48
- dplcEntry 2, $54
+ dplcEntry $E, $A88
 MapRUnc_Sonic_7_End
 
 MapRUnc_Sonic_8:	dplcHeader
- dplcEntry $C, $56
- dplcEntry 4, $62
+ dplcEntry $D, $A96
 MapRUnc_Sonic_8_End
 
 MapRUnc_Sonic_9:	dplcHeader
- dplcEntry $C, $56
- dplcEntry 4, $66
+ dplcEntry $D, $AA3
 MapRUnc_Sonic_9_End
 
 MapRUnc_Sonic_10:	dplcHeader
- dplcEntry $C, $6A
- dplcEntry 8, $76
+ dplcEntry $10, $AB0
+ dplcEntry 3, $AC0
 MapRUnc_Sonic_10_End
 
 MapRUnc_Sonic_11:	dplcHeader
- dplcEntry 4, $7E
- dplcEntry 4, $82
- dplcEntry 6, $86
- dplcEntry 6, $E
+ dplcEntry $10, $AC3
+ dplcEntry 2, $AD3
 MapRUnc_Sonic_11_End
 
 MapRUnc_Sonic_12:	dplcHeader
- dplcEntry 4, $8C
- dplcEntry 4, $90
- dplcEntry 4, $94
- dplcEntry 6, $E
+ dplcEntry $F, $AD5
 MapRUnc_Sonic_12_End
 
 MapRUnc_Sonic_13:	dplcHeader
- dplcEntry 8, $98
- dplcEntry 2, $A0
- dplcEntry $10, $A2
+ dplcEntry $10, $AF3
+ dplcEntry 4, $B03
 MapRUnc_Sonic_13_End
 
 MapRUnc_Sonic_14:	dplcHeader
- dplcEntry 8, $98
- dplcEntry 2, $B2
- dplcEntry $C, $B4
- dplcEntry 2, $C0
+ dplcEntry $10, $B07
+ dplcEntry 6, $B17
 MapRUnc_Sonic_14_End
 
 MapRUnc_Sonic_15:	dplcHeader
- dplcEntry 8, $C2
- dplcEntry 6, $CA
- dplcEntry 4, $D0
+ dplcEntry $10, $B1D
 MapRUnc_Sonic_15_End
 
 MapRUnc_Sonic_16:	dplcHeader
- dplcEntry 6, $D4
- dplcEntry $10, $DA
+ dplcEntry $10, $B2D
+ dplcEntry 3, $B3D
 MapRUnc_Sonic_16_End
 
 MapRUnc_Sonic_17:	dplcHeader
- dplcEntry 6, $D4
- dplcEntry $10, $EA
- dplcEntry 2, $FA
+ dplcEntry $10, $B40
+ dplcEntry 4, $B50
 MapRUnc_Sonic_17_End
 
 MapRUnc_Sonic_18:	dplcHeader
- dplcEntry 6, $D4
- dplcEntry 2, $FC
- dplcEntry $C, $FE
- dplcEntry 2, $10A
+ dplcEntry $10, $B54
+ dplcEntry 2, $B64
 MapRUnc_Sonic_18_End
 
 MapRUnc_Sonic_19:	dplcHeader
- dplcEntry 8, $C2
- dplcEntry 6, $10C
- dplcEntry 4, $112
+ dplcEntry $10, $B66
+ dplcEntry 2, $B76
 MapRUnc_Sonic_19_End
 
 MapRUnc_Sonic_20:	dplcHeader
- dplcEntry 8, $98
- dplcEntry $C, $116
+ dplcEntry $10, $B78
+ dplcEntry 2, $B88
 MapRUnc_Sonic_20_End
 
 MapRUnc_Sonic_21:	dplcHeader
@@ -502,23 +526,23 @@ MapRUnc_Sonic_44:	dplcHeader
 MapRUnc_Sonic_44_End
 
 MapRUnc_Sonic_45:	dplcHeader
- dplcEntry 6, $2B6
- dplcEntry $10, $2BC
+ dplcEntry $10, $B8A
+ dplcEntry 2, $B9A
 MapRUnc_Sonic_45_End
 
 MapRUnc_Sonic_46:	dplcHeader
- dplcEntry 6, $2CC
- dplcEntry $10, $2D2
+ dplcEntry $10, $B9C
+ dplcEntry 2, $BAC
 MapRUnc_Sonic_46_End
 
 MapRUnc_Sonic_47:	dplcHeader
- dplcEntry 6, $2B6
- dplcEntry $10, $2E2
+ dplcEntry $10, $BAE
+ dplcEntry 2, $BBE
 MapRUnc_Sonic_47_End
 
 MapRUnc_Sonic_48:	dplcHeader
- dplcEntry 6, $2CC
- dplcEntry $10, $2F2
+ dplcEntry $10, $BC0
+ dplcEntry 2, $BD0
 MapRUnc_Sonic_48_End
 
 MapRUnc_Sonic_49:	dplcHeader
@@ -662,7 +686,7 @@ MapRUnc_Sonic_76:	dplcHeader
 MapRUnc_Sonic_76_End
 
 MapRUnc_Sonic_77:	dplcHeader
- dplcEntry $10, $4C2
+ dplcEntry $F, $AE4
 MapRUnc_Sonic_77_End
 
 MapRUnc_Sonic_78:	dplcHeader
@@ -1544,5 +1568,261 @@ MapRUnc_Sonic_213:	dplcHeader
  dplcEntry 6, $A06
  dplcEntry $C, $A0C
 MapRUnc_Sonic_213_End
+
+MapRUnc_Sonic_214:	dplcHeader
+ dplcEntry $10, $BD2
+ dplcEntry 4, $BE2
+MapRUnc_Sonic_214_End
+
+MapRUnc_Sonic_215:	dplcHeader
+ dplcEntry $10, $BE6
+ dplcEntry 4, $BF6
+MapRUnc_Sonic_215_End
+
+MapRUnc_Sonic_216:	dplcHeader
+ dplcEntry $10, $BFA
+ dplcEntry 2, $C0A
+MapRUnc_Sonic_216_End
+
+MapRUnc_Sonic_217:	dplcHeader
+ dplcEntry $10, $C0C
+ dplcEntry 3, $C1C
+MapRUnc_Sonic_217_End
+
+MapRUnc_Sonic_218:	dplcHeader
+ dplcEntry $10, $C1F
+ dplcEntry 3, $C2F
+MapRUnc_Sonic_218_End
+
+MapRUnc_Sonic_219:	dplcHeader
+ dplcEntry $10, $C32
+ dplcEntry 4, $C42
+MapRUnc_Sonic_219_End
+
+MapRUnc_Sonic_220:	dplcHeader
+ dplcEntry $10, $C46
+ dplcEntry 2, $C56
+MapRUnc_Sonic_220_End
+
+MapRUnc_Sonic_221:	dplcHeader
+ dplcEntry $10, $C58
+ dplcEntry 2, $C68
+MapRUnc_Sonic_221_End
+
+MapRUnc_Sonic_222:	dplcHeader
+ dplcEntry $10, $C6A
+ dplcEntry 4, $C7A
+MapRUnc_Sonic_222_End
+
+MapRUnc_Sonic_223:	dplcHeader
+ dplcEntry $10, $C7E
+ dplcEntry 2, $C8E
+MapRUnc_Sonic_223_End
+
+MapRUnc_Sonic_224:	dplcHeader
+ dplcEntry $10, $C90
+ dplcEntry 3, $CA0
+MapRUnc_Sonic_224_End
+
+MapRUnc_Sonic_225:	dplcHeader
+ dplcEntry $10, $CA3
+ dplcEntry 4, $CB3
+MapRUnc_Sonic_225_End
+
+MapRUnc_Sonic_226:	dplcHeader
+ dplcEntry $10, $CB7
+MapRUnc_Sonic_226_End
+
+MapRUnc_Sonic_227:	dplcHeader
+ dplcEntry $10, $CC7
+MapRUnc_Sonic_227_End
+
+MapRUnc_Sonic_228:	dplcHeader
+ dplcEntry $10, $CD7
+MapRUnc_Sonic_228_End
+
+MapRUnc_Sonic_229:	dplcHeader
+ dplcEntry $10, $CE7
+MapRUnc_Sonic_229_End
+
+MapRUnc_Sonic_230:	dplcHeader
+ dplcEntry $10, $CF7
+MapRUnc_Sonic_230_End
+
+MapRUnc_Sonic_231:	dplcHeader
+ dplcEntry $10, $D07
+ dplcEntry 1, $D17
+MapRUnc_Sonic_231_End
+
+MapRUnc_Sonic_232:	dplcHeader
+ dplcEntry $10, $D18
+ dplcEntry 3, $D28
+MapRUnc_Sonic_232_End
+
+MapRUnc_Sonic_233:	dplcHeader
+ dplcEntry $10, $D2B
+ dplcEntry 4, $D3B
+MapRUnc_Sonic_233_End
+
+MapRUnc_Sonic_234:	dplcHeader
+ dplcEntry $10, $D3F
+ dplcEntry 2, $D4F
+MapRUnc_Sonic_234_End
+
+MapRUnc_Sonic_235:	dplcHeader
+ dplcEntry $10, $D51
+ dplcEntry 2, $D61
+MapRUnc_Sonic_235_End
+
+MapRUnc_Sonic_236:	dplcHeader
+ dplcEntry $10, $D63
+ dplcEntry 2, $D73
+MapRUnc_Sonic_236_End
+
+MapRUnc_Sonic_237:	dplcHeader
+ dplcEntry $10, $D75
+MapRUnc_Sonic_237_End
+
+MapRUnc_Sonic_238:	dplcHeader
+ dplcEntry $10, $D85
+ dplcEntry 3, $D95
+MapRUnc_Sonic_238_End
+
+MapRUnc_Sonic_239:	dplcHeader
+ dplcEntry $10, $D98
+ dplcEntry 4, $DA8
+MapRUnc_Sonic_239_End
+
+MapRUnc_Sonic_240:	dplcHeader
+ dplcEntry $10, $DAC
+ dplcEntry 3, $DBC
+MapRUnc_Sonic_240_End
+
+MapRUnc_Sonic_241:	dplcHeader
+ dplcEntry $10, $DBF
+ dplcEntry 1, $DCF
+MapRUnc_Sonic_241_End
+
+MapRUnc_Sonic_242:	dplcHeader
+ dplcEntry $10, $DD0
+ dplcEntry 2, $DE0
+MapRUnc_Sonic_242_End
+
+MapRUnc_Sonic_243:	dplcHeader
+ dplcEntry $10, $DE2
+ dplcEntry 2, $DF2
+MapRUnc_Sonic_243_End
+
+MapRUnc_Sonic_244:	dplcHeader
+ dplcEntry $10, $DF4
+ dplcEntry 1, $E04
+MapRUnc_Sonic_244_End
+
+MapRUnc_Sonic_245:	dplcHeader
+ dplcEntry $10, $E05
+ dplcEntry 3, $E15
+MapRUnc_Sonic_245_End
+
+MapRUnc_Sonic_246:	dplcHeader
+ dplcEntry $10, $E18
+ dplcEntry 2, $E28
+MapRUnc_Sonic_246_End
+
+MapRUnc_Sonic_247:	dplcHeader
+ dplcEntry $10, $E2A
+ dplcEntry 3, $E3A
+MapRUnc_Sonic_247_End
+
+MapRUnc_Sonic_248:	dplcHeader
+ dplcEntry $10, $E3D
+ dplcEntry 1, $E4D
+MapRUnc_Sonic_248_End
+
+MapRUnc_Sonic_249:	dplcHeader
+ dplcEntry $10, $E4E
+ dplcEntry 1, $E5E
+MapRUnc_Sonic_249_End
+
+MapRUnc_Sonic_250:	dplcHeader
+ dplcEntry $E, $E5F
+MapRUnc_Sonic_250_End
+
+MapRUnc_Sonic_251:	dplcHeader
+ dplcEntry $10, $E6D
+ dplcEntry 1, $E7D
+MapRUnc_Sonic_251_End
+
+MapRUnc_Sonic_252:	dplcHeader
+ dplcEntry $E, $E7E
+MapRUnc_Sonic_252_End
+
+MapRUnc_Sonic_253:	dplcHeader
+ dplcEntry $10, $E8C
+ dplcEntry 5, $E9C
+MapRUnc_Sonic_253_End
+
+MapRUnc_Sonic_254:	dplcHeader
+ dplcEntry $10, $EA1
+ dplcEntry 4, $EB1
+MapRUnc_Sonic_254_End
+
+MapRUnc_Sonic_255:	dplcHeader
+ dplcEntry $10, $EB5
+ dplcEntry 4, $EC5
+MapRUnc_Sonic_255_End
+
+MapRUnc_Sonic_256:	dplcHeader
+ dplcEntry $10, $EC9
+ dplcEntry 1, $ED9
+MapRUnc_Sonic_256_End
+
+MapRUnc_Sonic_257:	dplcHeader
+ dplcEntry $10, $EDA
+ dplcEntry 1, $EEA
+MapRUnc_Sonic_257_End
+
+MapRUnc_Sonic_258:	dplcHeader
+ dplcEntry $10, $EEB
+MapRUnc_Sonic_258_End
+
+MapRUnc_Sonic_259:	dplcHeader
+ dplcEntry $10, $EFB
+MapRUnc_Sonic_259_End
+
+MapRUnc_Sonic_260:	dplcHeader
+ dplcEntry $10, $F0B
+MapRUnc_Sonic_260_End
+
+MapRUnc_Sonic_261:	dplcHeader
+ dplcEntry $10, $F1B
+MapRUnc_Sonic_261_End
+
+MapRUnc_Sonic_262:	dplcHeader
+ dplcEntry $E, $F2B
+MapRUnc_Sonic_262_End
+
+MapRUnc_Sonic_263:	dplcHeader
+ dplcEntry $E, $F39
+MapRUnc_Sonic_263_End
+
+MapRUnc_Sonic_264:	dplcHeader
+ dplcEntry $10, $F47
+ dplcEntry 3, $F57
+MapRUnc_Sonic_264_End
+
+MapRUnc_Sonic_265:	dplcHeader
+ dplcEntry $10, $F5A
+ dplcEntry 3, $F6A
+MapRUnc_Sonic_265_End
+
+MapRUnc_Sonic_266:	dplcHeader
+ dplcEntry $10, $F6D
+ dplcEntry 1, $F7D
+MapRUnc_Sonic_266_End
+
+MapRUnc_Sonic_267:	dplcHeader
+ dplcEntry $10, $F7E
+ dplcEntry 1, $F8E
+MapRUnc_Sonic_267_End
 
 	even

@@ -177,6 +177,9 @@ BAnim_WalkRun:
 +
 	;tst.b	(Super_Sonic_flag).w
 	;bne.s	SAnim_Super
+	lea (BlzAni_FullSpd).l,a1
+	cmpi.w  #$800,d2
+	bhs		+
 	lea	(BlzAni_Run).l,a1	; use running animation
 	cmpi.w	#$600,d2		; is Sonic at running speed?
 	bhs.s	+			; use running animation
@@ -236,7 +239,7 @@ BlzAni_Dash2_ptr:		offsetTableEntry.w BlzAni_Dash2		; 18 ; $12
 BlzAni_Dash3_ptr:		offsetTableEntry.w BlzAni_Dash3		; 19 ; $13
 BlzAni_Hang2_ptr:		offsetTableEntry.w BlzAni_Hang2		; 20 ; $14
 BlzAni_Bubble_ptr:		offsetTableEntry.w BlzAni_Bubble	; 21 ; $15
-BlzAni_DeathBW_ptr:		offsetTableEntry.w BlzAni_DeathBW	; 22 ; $16
+BlzAni_DeathBW_ptr:		offsetTableEntry.w BlzAni_DeathBW		; 22 ; $16
 BlzAni_Drown_ptr:		offsetTableEntry.w BlzAni_Drown		; 23 ; $17
 BlzAni_Death_ptr:		offsetTableEntry.w BlzAni_Death		; 24 ; $18
 BlzAni_Hurt_ptr:		offsetTableEntry.w BlzAni_Hurt		; 25 ; $19
@@ -248,6 +251,7 @@ BlzAni_Balance4_ptr:		offsetTableEntry.w BlzAni_Balance4	; 30 ; $1E
 SupBlzAni_Transform_ptr:	offsetTableEntry.w SupSonAni_Transform	; 31 ; $1F
 BlzAni_Lying_ptr:		offsetTableEntry.w BlzAni_Lying		; 32 ; $20
 BlzAni_LieDown_ptr:		offsetTableEntry.w BlzAni_LieDown	; 33 ; $21
+BlzAni_FullSpd_ptr:		offsetTableEntry.w BlzAni_FullSpd   ; 34 ; $22
 
 BlzAni_Walk:	dc.b $FF, $D, $E, $F, $10, $11, $12, $FF
 	rev02even
@@ -313,4 +317,6 @@ BlzAni_Balance4:dc.b   16,$C8,$C9,$FF
 BlzAni_Lying:	dc.b   9,  8,  9,$FF
 	rev02even
 BlzAni_LieDown:	dc.b   3,  7,$FD,  0
+	rev02even
+BlzAni_FullSpd:	dc.b $FF,$E1,$E2,$E3,$E4,$FF,$FF,$FF,$FF,$FF
 	even
