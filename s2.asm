@@ -4666,6 +4666,7 @@ MusicList2: zoneOrderedTable 1,1
 ; ---------------------------------------------------------------------------
 ; loc_3EC4:
 Level:
+	move.b	#0, (Boost_Amount).w
 	bset	#GameModeFlag_TitleCard,(Game_Mode).w ; add $80 to screen mode (for pre level sequence)
 	tst.w	(Demo_mode_flag).w	; test the old flag for the credits demos (now unused)
 	bmi.s	+
@@ -82446,6 +82447,13 @@ BuildHUD:
 +
 	move.w	#128+16,d3	; set X pos
 	move.w	#128+136,d2	; set Y pos
+	move.b	(Boost_Amount).w, d1
+	cmpi.b  #160, d1
+	blo		+
+	move.b	#0, d1
+	move.b	d1, (Boost_Amount).w
++
+	lsr.b	#4, d1 ; divide by 16
 	lea	(HUD_MapUnc_40A9A).l,a1
 	movea.w	#make_art_tile(ArtTile_ArtNem_HUD,0,1),a3	; set art tile and flags
 	add.w	d1,d1
@@ -82798,12 +82806,12 @@ HudUpdate:
 	bne.w	loc_40F50
 	tst.w	(Debug_mode_flag).w	; is debug mode on?
 	bne.w	loc_40E9A	; if yes, branch
-	tst.b	(Update_HUD_score).w	; does the score need updating?
-	beq.s	Hud_ChkRings	; if not, branch
-	clr.b	(Update_HUD_score).w
-	move.l	#vdpComm(tiles_to_bytes(ArtTile_HUD_Score),VRAM,WRITE),d0	; set VRAM address
-	move.l	(Score).w,d1	; load score
-	bsr.w	Hud_Score
+	;tst.b	(Update_HUD_score).w	; does the score need updating?
+	;beq.s	Hud_ChkRings	; if not, branch
+	;clr.b	(Update_HUD_score).w
+	;move.l	#vdpComm(tiles_to_bytes(ArtTile_HUD_Score),VRAM,WRITE),d0	; set VRAM address
+	;move.l	(Score).w,d1	; load score
+	;bsr.w	Hud_Score
 ; loc_40DBA:
 Hud_ChkRings:
 	tst.b	(Update_HUD_rings).w	; does the ring counter need updating?
@@ -82849,10 +82857,10 @@ Hud_ChkTime:
 	bsr.w	Hud_Secs
 ; loc_40E38:
 Hud_ChkLives:
-	tst.b	(Update_HUD_lives).w	; does the lives counter need updating?
-	beq.s	Hud_ChkBonus	; if not, branch
-	clr.b	(Update_HUD_lives).w
-	bsr.w	Hud_Lives
+	;tst.b	(Update_HUD_lives).w	; does the lives counter need updating?
+	;beq.s	Hud_ChkBonus	; if not, branch
+	;clr.b	(Update_HUD_lives).w
+	;bsr.w	Hud_Lives
 ; loc_40E46:
 Hud_ChkBonus:
 	tst.b	(Update_Bonus_score).w	; do time/ring bonus counters need updating?

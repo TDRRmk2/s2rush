@@ -299,7 +299,7 @@ Obj01_MdNormal_Checks:
 	; again. Likewise, if he's been waiting for so long that he's laying
 	; down, then make him play an animation of standing up.
 	move.b	(Ctrl_1_Press_Logical).w,d0
-	andi.b	#button_B_mask|button_C_mask|button_A_mask,d0
+	andi.b	#button_B_mask|button_C_mask,d0
 	bne.s	Obj01_MdNormal
 	cmpi.b	#AniIDSonAni_Blink,anim(a0)
 	beq.s	return_1A2DE
@@ -310,7 +310,7 @@ Obj01_MdNormal_Checks:
 	cmpi.b	#$1E,anim_frame(a0)
 	blo.s	Obj01_MdNormal
 	move.b	(Ctrl_1_Held_Logical).w,d0
-	andi.b	#button_up_mask|button_down_mask|button_left_mask|button_right_mask|button_B_mask|button_C_mask|button_A_mask,d0
+	andi.b	#button_up_mask|button_down_mask|button_left_mask|button_right_mask|button_B_mask|button_C_mask,d0
 	beq.s	return_1A2DE
 	move.b	#AniIDSonAni_Blink,anim(a0)
 	cmpi.b	#$AC,anim_frame(a0)
@@ -377,6 +377,7 @@ Obj01_MdJump:
 	bsr.w	Sonic_JumpHeight
 	bsr.w	Sonic_ChgJumpDir
 	bsr.w	Sonic_LevelBound
+	bsr		Sonic_AirAbilities
 	jsr	(ObjectMoveAndFall).l
 	btst	#6,status(a0)	; is Sonic underwater?
 	beq.s	+		; if not, branch
@@ -1193,7 +1194,7 @@ return_1AA36:
 ; loc_1AA38:
 Sonic_Jump:
 	move.b	(Ctrl_1_Press_Logical).w,d0
-	andi.b	#button_B_mask|button_C_mask|button_A_mask,d0 ; is A, B or C pressed?
+	andi.b	#button_B_mask|button_C_mask,d0 ; is A, B or C pressed?
 	beq.w	return_1AAE6	; if not, return
 	moveq	#0,d0
 	move.b	angle(a0),d0
@@ -1268,7 +1269,7 @@ Sonic_JumpHeight:
 	cmp.w	y_vel(a0),d1	; is Sonic going up faster than d1?
 	ble.s	+		; if not, branch
 	move.b	(Ctrl_1_Held_Logical).w,d0
-	andi.b	#button_B_mask|button_C_mask|button_A_mask,d0 ; is a jump button pressed?
+	andi.b	#button_B_mask|button_C_mask,d0 ; is a jump button pressed?
 	bne.s	+		; if yes, branch
 	move.w	d1,y_vel(a0)	; immediately reduce Sonic's upward speed to d1
 +
@@ -1401,7 +1402,7 @@ Sonic_CheckSpindash:
 	cmpi.b	#AniIDSonAni_Duck,anim(a0)
 	bne.s	return_1AC8C
 	move.b	(Ctrl_1_Press_Logical).w,d0
-	andi.b	#button_B_mask|button_C_mask|button_A_mask,d0
+	andi.b	#button_B_mask|button_C_mask,d0
 	beq.w	return_1AC8C
 	move.b	#AniIDSonAni_Spindash,anim(a0)
 	move.w	#SndID_SpindashRev,d0
@@ -1516,7 +1517,7 @@ Sonic_ChargingSpindash:			; If still charging the dash...
 	move.w	#0,spindash_counter(a0)
 +
 	move.b	(Ctrl_1_Press_Logical).w,d0
-	andi.b	#button_B_mask|button_C_mask|button_A_mask,d0
+	andi.b	#button_B_mask|button_C_mask,d0
 	beq.w	Obj01_Spindash_ResetScr
 	move.w	#(AniIDSonAni_Spindash<<8)|(AniIDSonAni_Walk<<0),anim(a0)
 	move.w	#SndID_SpindashRev,d0
@@ -2678,4 +2679,9 @@ SPLC_ReadEntry:
 	dbf	d5,SPLC_ReadEntry	; repeat for number of entries
 
 return_1B89A:
+	rts
+
+Sonic_AirAbilities:
+	cmp.b	#2, id(a0)
+	beq		Blaze_AirAbilities	; use Blaze version
 	rts

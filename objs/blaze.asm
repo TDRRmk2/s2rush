@@ -178,7 +178,7 @@ BAnim_WalkRun:
 	;tst.b	(Super_Sonic_flag).w
 	;bne.s	SAnim_Super
 	lea (BlzAni_FullSpd).l,a1
-	cmpi.w  #$800,d2
+	cmpi.w  #$900,d2
 	bhs		+
 	lea	(BlzAni_Run).l,a1	; use running animation
 	cmpi.w	#$600,d2		; is Sonic at running speed?
@@ -239,7 +239,7 @@ BlzAni_Dash2_ptr:		offsetTableEntry.w BlzAni_Dash2		; 18 ; $12
 BlzAni_Dash3_ptr:		offsetTableEntry.w BlzAni_Dash3		; 19 ; $13
 BlzAni_Hang2_ptr:		offsetTableEntry.w BlzAni_Hang2		; 20 ; $14
 BlzAni_Bubble_ptr:		offsetTableEntry.w BlzAni_Bubble	; 21 ; $15
-BlzAni_DeathBW_ptr:		offsetTableEntry.w BlzAni_DeathBW		; 22 ; $16
+BlzAni_Fall_ptr:		offsetTableEntry.w BlzAni_Fall		; 22 ; $16
 BlzAni_Drown_ptr:		offsetTableEntry.w BlzAni_Drown		; 23 ; $17
 BlzAni_Death_ptr:		offsetTableEntry.w BlzAni_Death		; 24 ; $18
 BlzAni_Hurt_ptr:		offsetTableEntry.w BlzAni_Hurt		; 25 ; $19
@@ -252,6 +252,8 @@ SupBlzAni_Transform_ptr:	offsetTableEntry.w SupSonAni_Transform	; 31 ; $1F
 BlzAni_Lying_ptr:		offsetTableEntry.w BlzAni_Lying		; 32 ; $20
 BlzAni_LieDown_ptr:		offsetTableEntry.w BlzAni_LieDown	; 33 ; $21
 BlzAni_FullSpd_ptr:		offsetTableEntry.w BlzAni_FullSpd   ; 34 ; $22
+BlzAni_Hover_ptr:		offsetTableEntry.w BlzAni_Hover     ; 35 ; $23
+BlzAni_AxelT_ptr:		offsetTableEntry.w BlzAni_AxelT		; 36 ; $24
 
 BlzAni_Walk:	dc.b $FF, $D, $E, $F, $10, $11, $12, $FF
 	rev02even
@@ -264,9 +266,9 @@ BlzAni_Roll2:	dc.b $FE,$3D,$41,$3E,$41,$3F,$41,$40,$41,$FF
 BlzAni_Push:	dc.b $FD,$48,$49,$4A,$4B,$FF,$FF,$FF,$FF,$FF
 	rev02even
 BlzAni_Wait:
-	dc.b   $17,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1, 3, 2, 3, 2, 3, 2, 4, 5, $FE,  2
+	dc.b   $17,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1, 3, 2, 3, 2, 3, 2, 3, 2, 4, 5, $FE,  2
 	rev02even
-BlzAni_Balance:	dc.b   16,$C8,$C9,$FF
+BlzAni_Balance:	dc.b   16,$6D,$6E,$FF
 	rev02even
 BlzAni_LookUp:	dc.b   5, $C, $FF
 	rev02even
@@ -278,9 +280,9 @@ BlzAni_Blink:	dc.b   1,  2,$FD,  0
 	rev02even
 BlzAni_GetUp:	dc.b   3, $A,$FD,  0
 	rev02even
-BlzAni_Balance2:dc.b   16,$C8,$C9,$FF
+BlzAni_Balance2:dc.b   16,$6D,$6E,$FF
 	rev02even
-BlzAni_Stop:	dc.b   5,$D2,$D3,$FF ; halt/skidding animation
+BlzAni_Stop:	dc.b   5,$77,$78,$FF ; halt/skidding animation
 	rev02even
 BlzAni_Float:	dc.b   7,$54,$59,$FF
 	rev02even
@@ -298,7 +300,7 @@ BlzAni_Hang2:	dc.b $13,$6B,$6C,$FF
 	rev02even
 BlzAni_Bubble:	dc.b  $B,$5A,$5A,$11,$12,$FD,  0 ; breathe
 	rev02even
-BlzAni_DeathBW:	dc.b $20,$5E,$FF
+BlzAni_Fall:	dc.b 5,$7D,$7E,$FF
 	rev02even
 BlzAni_Drown:	dc.b $20,$5D,$FF
 	rev02even
@@ -310,13 +312,65 @@ BlzAni_Slide:	dc.b   9,$4E,$4F,$FF
 	rev02even
 BlzAni_Blank:	dc.b $77,  0,$FD,  0
 	rev02even
-BlzAni_Balance3:dc.b   16,$C8,$C9,$FF
+BlzAni_Balance3:dc.b   16,$6D,$6E,$FF
 	rev02even
-BlzAni_Balance4:dc.b   16,$C8,$C9,$FF
+BlzAni_Balance4:dc.b   16,$6D,$6E,$FF
 	rev02even
 BlzAni_Lying:	dc.b   9,  8,  9,$FF
 	rev02even
 BlzAni_LieDown:	dc.b   3,  7,$FD,  0
 	rev02even
-BlzAni_FullSpd:	dc.b $FF,$E1,$E2,$E3,$E4,$FF,$FF,$FF,$FF,$FF
+BlzAni_FullSpd:	dc.b $FF,$7B,$7C,$FF,$FF,$FF,$FF,$FF,$FF,$FF
+	rev02even
+BlzAni_Hover:	dc.b 5, $81, $82, $FF
+	rev02even
+BlzAni_AxelT:	dc.b 7, 6, 7, 8, 9, $A, $FF
 	even
+
+Blaze_HoverSpd = 32
+Blaze_AxelSpd = -1750
+
+Blaze_AirAbilities:
+	move.b 	anim(a0), d0
+	cmpi.b	#(BlzAni_Hover_ptr-BlazeAniData)/2, d0
+	beq		Blaze_HoverTick
+	cmpi.b	#(BlzAni_AxelT_ptr-BlazeAniData)/2, d0
+	beq		Blaze_AxelTick
+	cmpi.b 	#(BlzAni_Roll_ptr-BlazeAniData)/2, d0
+	blo		.ret
+	cmpi.b 	#(BlzAni_Roll2_ptr-BlazeAniData)/2, d0
+	bhi		.ret
+	move.b	(Ctrl_1_Press_Logical).w, d0
+	btst	#button_C, d0
+	bne     .doHover
+	btst	#button_B, d0
+	bne		.doAxelT
+	bra		.ret
+.doHover:
+	move.b	#(BlzAni_Hover_ptr-BlazeAniData)/2, anim(a0)
+	bra 	.ret
+.doAxelT:
+	move.b	#(BlzAni_AxelT_ptr-BlazeAniData)/2, anim(a0)
+	move.w	#Blaze_AxelSpd, y_vel(a0)
+.ret:
+	rts
+
+Blaze_HoverTick:
+	btst	#button_C, (Ctrl_1_Held_Logical).w
+	beq		.stopHover
+	cmpi.w	#Blaze_HoverSpd, y_vel(a0)
+	ble		.noSpeedSet
+	move.w	#Blaze_HoverSpd, y_vel(a0)
+	bra		.ret
+.stopHover:
+	move.b	#(BlzAni_Roll_ptr-BlazeAniData)/2, anim(a0)
+.noSpeedSet:
+.ret:
+	rts
+
+Blaze_AxelTick:
+	tst.w	y_vel(a0)
+	blt	    .Rising
+	move.b	#(BlzAni_Fall_ptr-BlazeAniData)/2, anim(a0)
+.Rising:
+	rts

@@ -1,7 +1,7 @@
 {
     "Flex": 2,
     "name": "Sonic 2",
-    "node": "7b4b7a90-6802-40e0-b1f0-40da373a9f9b",
+    "node": "96e69894-c211-44e1-a6f2-c961ecf290d5",
     "objects": [
         {
             "name": "Common",
@@ -337,6 +337,35 @@
             "isDirectory": true,
             "expanded": true,
             "uuid": "a898dad6-e825-4660-9429-93f6dd09b880"
+        },
+        {
+            "format": "Sonic 1.js",
+            "name": "HUD",
+            "palettes": [
+                {
+                    "path": "art/palettes/SonicAndTails.bin",
+                    "length": 1
+                },
+                {
+                    "path": "art/palettes/EHZ.bin",
+                    "length": 1
+                }
+            ],
+            "art": {
+                "path": "art/nemesis/HUD.nem",
+                "compression": "Nemesis",
+                "offset": 0
+            },
+            "mappings": {
+                "path": "mappings/sprite/hud_a.asm",
+                "label": ""
+            },
+            "dplcs": {
+                "enabled": false,
+                "path": "",
+                "label": ""
+            },
+            "uuid": "96e69894-c211-44e1-a6f2-c961ecf290d5"
         },
         {
             "name": "ARZ",

@@ -1069,7 +1069,9 @@ Tails_InvincibilityStars:
 				ds.b	object_size
 LevelOnly_Object_RAM_End:
 
-				ds.b	$200	; unused
+Boost_Amount: ds.b	$1
+				ds.b	$1FF
+				;ds.b	$200	; unused
 
 Primary_Collision:		ds.b	$300
 Secondary_Collision:		ds.b	$300
@@ -2028,6 +2030,9 @@ CutScene:
 
 	!org	0	; Reset the program counter
 
+
+Boost_Max = 160
+Boost_Increase = 20
 
 ; ---------------------------------------------------------------------------
 ; VDP addressses
