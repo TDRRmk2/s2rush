@@ -617,6 +617,7 @@ ObjID_StartBanner =		id(ObjPtr_StartBanner)		; 5F
 ObjID_EndingController =	id(ObjPtr_EndingController)	; 5F
 ObjID_SSRing =			id(ObjPtr_SSRing)		; 60
 ObjID_SSBomb =			id(ObjPtr_SSBomb)		; 61
+ObjID_BlazeFlame =		id(ObjPtr_BlazeFlame)	; 62
 ObjID_SSShadow =		id(ObjPtr_SSShadow)		; 63
 ObjID_MTZTwinStompers =		id(ObjPtr_MTZTwinStompers)	; 64
 ObjID_MTZLongPlatform =		id(ObjPtr_MTZLongPlatform)	; 65
@@ -1069,8 +1070,12 @@ Tails_InvincibilityStars:
 				ds.b	object_size
 LevelOnly_Object_RAM_End:
 
-Boost_Amount: ds.b	$1
-				ds.b	$1FF
+Boost_Amount:  ds.b	$2
+BlzFlameTimer: ds.b	$1
+IsBoosting:		ds.b $1
+Trick_Timer:	ds.b $1
+Trick_Anim:		ds.b $1
+				ds.b	$1FA
 				;ds.b	$200	; unused
 
 Primary_Collision:		ds.b	$300
@@ -2032,7 +2037,7 @@ CutScene:
 
 
 Boost_Max = 160
-Boost_Increase = 20
+Boost_Increase = 12
 
 ; ---------------------------------------------------------------------------
 ; VDP addressses

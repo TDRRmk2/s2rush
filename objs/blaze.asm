@@ -177,6 +177,9 @@ BAnim_WalkRun:
 +
 	;tst.b	(Super_Sonic_flag).w
 	;bne.s	SAnim_Super
+	lea	(BlzAni_Fall).l,a1
+	btst	#1, status(a0)
+	bne		+
 	lea (BlzAni_FullSpd).l,a1
 	cmpi.w  #$900,d2
 	bhs		+
@@ -254,6 +257,10 @@ BlzAni_LieDown_ptr:		offsetTableEntry.w BlzAni_LieDown	; 33 ; $21
 BlzAni_FullSpd_ptr:		offsetTableEntry.w BlzAni_FullSpd   ; 34 ; $22
 BlzAni_Hover_ptr:		offsetTableEntry.w BlzAni_Hover     ; 35 ; $23
 BlzAni_AxelT_ptr:		offsetTableEntry.w BlzAni_AxelT		; 36 ; $24
+BlzAni_Trick1_ptr:		offsetTableEntry.w BlzAni_Trick1	; 37 ; $25
+BlzAni_Trick2_ptr:		offsetTableEntry.w BlzAni_Trick2	; 38 ; $26
+BlzAni_Trick3_ptr:		offsetTableEntry.w BlzAni_Trick3	; 39 ; $27
+BlzAni_SpringFall_ptr:	offsetTableEntry.w BlzAni_SpringFall	; 40 ; $28
 
 BlzAni_Walk:	dc.b $FF, $D, $E, $F, $10, $11, $12, $FF
 	rev02even
@@ -288,7 +295,7 @@ BlzAni_Float:	dc.b   7,$54,$59,$FF
 	rev02even
 BlzAni_Float2:	dc.b   7,$54,$55,$56,$57,$58,$FF
 	rev02even
-BlzAni_Spring:	dc.b $2F,$5B,$FD,  0
+BlzAni_Spring:	dc.b $2F,$5B,$FD,(BlzAni_SpringFall_ptr-BlazeAniData)/2
 	rev02even
 BlzAni_Hang:	dc.b   1,$50,$51,$FF
 	rev02even
@@ -300,7 +307,7 @@ BlzAni_Hang2:	dc.b $13,$6B,$6C,$FF
 	rev02even
 BlzAni_Bubble:	dc.b  $B,$5A,$5A,$11,$12,$FD,  0 ; breathe
 	rev02even
-BlzAni_Fall:	dc.b 5,$7D,$7E,$FF
+BlzAni_Fall:	dc.b 5,$7D,$7E,$FF,$FF,$FF,$FF,$FF,$FF,$FF
 	rev02even
 BlzAni_Drown:	dc.b $20,$5D,$FF
 	rev02even
@@ -322,13 +329,101 @@ BlzAni_LieDown:	dc.b   3,  7,$FD,  0
 	rev02even
 BlzAni_FullSpd:	dc.b $FF,$7B,$7C,$FF,$FF,$FF,$FF,$FF,$FF,$FF
 	rev02even
-BlzAni_Hover:	dc.b 5, $81, $82, $FF
+BlzAni_Hover:	dc.b 5, $8B, $8C, $FF
 	rev02even
 BlzAni_AxelT:	dc.b 7, 6, 7, 8, 9, $A, $FF
+	rev02even
+BlzAni_Trick1:	dc.b 7, $41, $59, $FE, 1
+	rev02even
+BlzAni_Trick2:	dc.b 7, $41, $77, $FE, 1
+	rev02even
+BlzAni_Trick3:	dc.b 7, $41, $5A, $FE, 1
+	rev02even
+BlzAni_SpringFall: dc.b 5,$7D,$7E,$FF
 	even
 
 Blaze_HoverSpd = 32
 Blaze_AxelSpd = -1750
+Blaze_BoostSpd = $9A0
+Blaze_FlameFreq = 4
+
+Blaze_Tricks:
+	move.b	anim(a0), d0
+	cmpi.b 	#(BlzAni_Spring_ptr-BlazeAniData)/2, d0
+	beq		.doTrick
+	cmpi.b 	#(BlzAni_SpringFall_ptr-BlazeAniData)/2, d0
+	beq		.doTrick
+	cmpi.b 	#(BlzAni_Trick1_ptr-BlazeAniData)/2, d0
+	beq		.inTrick
+	cmpi.b 	#(BlzAni_Trick2_ptr-BlazeAniData)/2, d0
+	beq		.inTrick
+	cmpi.b 	#(BlzAni_Trick3_ptr-BlazeAniData)/2, d0
+	beq		.inTrick
+	bra 	.ret
+.inTrick:
+	addq.b  #1, (Trick_Timer)
+	cmpi.b  #30, (Trick_Timer)
+	blo		.ret
+.doTrick:
+	move.b	(Ctrl_1_Press_Logical).w, d0
+	andi	#button_B_mask|button_C_mask, d0
+	beq     .ret
+	move.b  #0, (Trick_Timer)
+	jsr 	RandomNumber
+	andi.b  #3, d0
+	cmpi.b  #3, d0
+	bne 	+
+	move.b  #0, d0
++
+	addi.b	#(BlzAni_Trick1_ptr-BlazeAniData)/2, d0
+	move.b	d0, anim(a0)
+	addi.w	#Boost_Increase, (Boost_Amount)
+.ret:
+	rts
+
+Blaze_Abilities:
+	tst.w	(Boost_Amount).w
+	beq		.stopBoosting
+	btst 	#button_A, (Ctrl_1_Held_Logical).w
+	beq		.stopBoosting
+	;tst.b 	(IsBoosting).w
+	;bne		.alreadyBoosting
+	;cmpi.w	#Boost_Increase, (Boost_Amount).w
+	;blt 	.stopBoosting
+	;subi.w	#Boost_Increase-1, (Boost_Amount).w
+	;move.b	#1, (IsBoosting).w
+;.alreadyBoosting:
+	subq.w	#1, (Boost_Amount).w
+	move.w	#Blaze_BoostSpd, d0
+	move.w	inertia(a0), d1
+	move.w	#0, anim(a0)
+	btst	#0, status(a0)
+	beq		.faceRight
+	neg.w	d0
+	cmp.w	d0, d1
+	ble		.noSpeedSet
+	bra		.doneFace
+.faceRight:
+	cmp.w	d0, d1
+	bge		.noSpeedSet
+.doneFace:
+	move.w	d0, inertia(a0)
+.noSpeedSet:
+	jsr 	RandomNumber
+	move.w	d0, -(sp)
+	jsr		RandomNumber
+	move.w	(sp)+, d1
+	andi.w	#30, d0
+	andi.w	#30, d1
+	subi.w	#15, d0
+	subi.w	#15, d1
+	add.w	x_pos(a0), d0
+	add.w	y_pos(a0), d1
+	bra 	Blaze_SpawnFlame
+.stopBoosting:
+	move.b	#0, (IsBoosting).w
+.ret:
+	rts
 
 Blaze_AirAbilities:
 	move.b 	anim(a0), d0
@@ -358,6 +453,18 @@ Blaze_AirAbilities:
 Blaze_HoverTick:
 	btst	#button_C, (Ctrl_1_Held_Logical).w
 	beq		.stopHover
+	move.w	x_pos(a0), d0
+	move.w	y_pos(a0), d1
+	addi.w  #12, d1
+	btst   #0, status(a0)
+	bne	   .FaceRight
+.FaceLeft:
+	subi.w  #13, d0
+	bra		.DoneFace
+.FaceRight:
+	addi.w  #13, d0
+.DoneFace:
+	bsr		Blaze_SpawnFlame
 	cmpi.w	#Blaze_HoverSpd, y_vel(a0)
 	ble		.noSpeedSet
 	move.w	#Blaze_HoverSpd, y_vel(a0)
@@ -373,4 +480,72 @@ Blaze_AxelTick:
 	blt	    .Rising
 	move.b	#(BlzAni_Fall_ptr-BlazeAniData)/2, anim(a0)
 .Rising:
+	addq.b  #1, (BlzFlameTimer).w
+	cmpi.b  #Blaze_FlameFreq, (BlzFlameTimer).w
+	bne		.ret
+	move.b  #0, (BlzFlameTimer).w
+	move.w  x_pos(a0), d0
+	move.w  y_pos(a0), d1
+	subi.w  #10, d0
+	bsr     Blaze_SpawnFlame_NoTimer
+	addi.w  #20, d0
+	bsr     Blaze_SpawnFlame_NoTimer
+.ret:
 	rts
+
+Blaze_SpawnFlame:
+	addq.b  #1, (BlzFlameTimer).w
+	cmpi.b  #Blaze_FlameFreq, (BlzFlameTimer).w
+	bne		Blaze_SpawnFlame_Return
+	move.b  #0, (BlzFlameTimer).w
+Blaze_SpawnFlame_NoTimer:
+	movem.w	d0-d1,-(sp)
+	bsr 	AllocateObject
+	bne		Blaze_SpawnFlame_Return
+	move.b	#0, $29(a1)
+	;btst    #6, obStatus(a0)
+	;beq		.NotUnderwater
+	move.b	#1, $29(a1)
+.NotUnderwater:
+	movem.w	(sp)+,d0-d1
+	_move.b	#ObjID_BlazeFlame, id(a1)
+	move.w	d0, x_pos(a1)
+	move.w	d1, y_pos(a1)
+	bra		Blaze_SpawnFlame_Return_NoPop
+Blaze_SpawnFlame_Return:
+	movem.w	(sp)+,d0-d1
+Blaze_SpawnFlame_Return_NoPop:
+	rts
+
+Ani_Obj62:	dc.w Ani_Obj62_Normal-Ani_Obj62
+		Ani_Obj62_Normal:	dc.b 6,	$B, $C, $D, $FE, 1
+		even
+
+Obj62:
+	moveq	#0,d0
+	move.b	routine(a0),d0
+	move.w	Obj62_Index(pc,d0.w),d1
+	jmp	Obj62_Index(pc,d1.w)
+
+Obj62_Index:	offsetTable
+		offsetTableEntry.w Obj62_Init	; 0
+		offsetTableEntry.w Obj62_Main	; 2
+
+Obj62_Init:
+	addq.b	#2,routine(a0)
+	move.l	#HUD_MapUnc_40A9A,mappings(a0)
+	move.w	#make_art_tile(ArtTile_ArtNem_HUD,0,1),art_tile(a0)
+	move.b	#0,anim(a0)
+	move.b	#4,render_flags(a0)
+	move.b	#1,priority(a0)
+	move.b	#8,width_pixels(a0)
+	move.w	#-$150,y_vel(a0)	; set initial speed (upwards)
+
+Obj62_Main:
+	tst.w	y_vel(a0)		; test speed
+	bpl.w	DeleteObject		; if it's positive (>= 0), delete the object
+	bsr.w	ObjectMove		; move the points
+	addi.w	#$10,y_vel(a0)		; slow down
+	lea		(Ani_Obj62).l,a1
+	bsr.w	AnimateSprite
+	bra.w	DisplaySprite

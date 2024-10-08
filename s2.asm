@@ -4666,7 +4666,7 @@ MusicList2: zoneOrderedTable 1,1
 ; ---------------------------------------------------------------------------
 ; loc_3EC4:
 Level:
-	move.b	#0, (Boost_Amount).w
+	move.w	#160, (Boost_Amount).w
 	bset	#GameModeFlag_TitleCard,(Game_Mode).w ; add $80 to screen mode (for pre level sequence)
 	tst.w	(Demo_mode_flag).w	; test the old flag for the credits demos (now unused)
 	bmi.s	+
@@ -29851,7 +29851,7 @@ ObjPtr_StartBanner:
 ObjPtr_EndingController:dc.l Obj5F	; Start banner/"Ending controller" from Special Stage
 ObjPtr_SSRing:		dc.l Obj60	; Rings from Special Stage
 ObjPtr_SSBomb:		dc.l Obj61	; Bombs from Special Stage
-			dc.l ObjNull	; Obj62
+ObjPtr_BlazeFlame:	dc.l Obj62
 ObjPtr_SSShadow:	dc.l Obj63	; Character shadow from Special Stage
 ObjPtr_MTZTwinStompers:	dc.l Obj64	; Twin stompers from MTZ
 ObjPtr_MTZLongPlatform:	dc.l Obj65	; Long moving platform from MTZ
@@ -33791,12 +33791,12 @@ loc_189FE:
 	beq.s	loc_18A3E
 	move.w	#1,inertia(a1)
 	move.b	#1,flip_angle(a1)
-	move.b	#AniIDSonAni_Walk,anim(a1)
+	move.b	#AniIDSonAni_Spring,anim(a1)
 	move.b	#0,flips_remaining(a1)
 	move.b	#4,flip_speed(a1)
 	btst	#1,d0
 	bne.s	loc_18A2E
-	move.b	#1,flips_remaining(a1)
+	move.b	#0,flips_remaining(a1)
 
 loc_18A2E:
 	btst	#0,status(a1)
@@ -33896,12 +33896,12 @@ loc_18B42:
 	beq.s	loc_18B82
 	move.w	#1,inertia(a1)
 	move.b	#1,flip_angle(a1)
-	move.b	#AniIDSonAni_Walk,anim(a1)
-	move.b	#1,flips_remaining(a1)
+	move.b	#AniIDSonAni_Spring,anim(a1)
+	move.b	#0,flips_remaining(a1)
 	move.b	#8,flip_speed(a1)
 	btst	#1,d0
 	bne.s	loc_18B72
-	move.b	#3,flips_remaining(a1)
+	move.b	#0,flips_remaining(a1)
 
 loc_18B72:
 	btst	#0,status(a1)
@@ -34040,12 +34040,12 @@ loc_18CE6:
 	beq.s	loc_18D26
 	move.w	#1,inertia(a1)
 	move.b	#1,flip_angle(a1)
-	move.b	#AniIDSonAni_Walk,anim(a1)
+	move.b	#AniIDSonAni_Spring,anim(a1);#AniIDSonAni_Walk,anim(a1)
 	move.b	#0,flips_remaining(a1)
 	move.b	#4,flip_speed(a1)
 	btst	#1,d0
 	bne.s	loc_18D16
-	move.b	#1,flips_remaining(a1)
+	move.b	#0,flips_remaining(a1)
 
 loc_18D16:
 	btst	#0,status(a1)
@@ -34142,12 +34142,12 @@ loc_18E10:
 	beq.s	loc_18E6C
 	move.w	#1,inertia(a1)
 	move.b	#1,flip_angle(a1)
-	move.b	#AniIDSonAni_Walk,anim(a1)
-	move.b	#1,flips_remaining(a1)
+	move.b	#AniIDSonAni_Spring,anim(a1);#AniIDSonAni_Walk,anim(a1)
+	move.b	#0,flips_remaining(a1)
 	move.b	#8,flip_speed(a1)
 	btst	#1,d0
 	bne.s	loc_18E5C
-	move.b	#3,flips_remaining(a1)
+	move.b	#0,flips_remaining(a1)
 
 loc_18E5C:
 	btst	#0,status(a1)
@@ -34225,12 +34225,12 @@ loc_18F22:
 	beq.s	loc_18F78
 	move.w	#1,inertia(a1)
 	move.b	#1,flip_angle(a1)
-	move.b	#AniIDSonAni_Walk,anim(a1)
-	move.b	#1,flips_remaining(a1)
+	move.b	#AniIDSonAni_Spring,anim(a1);#AniIDSonAni_Walk,anim(a1)
+	move.b	#0,flips_remaining(a1)
 	move.b	#8,flip_speed(a1)
 	btst	#1,d0
 	bne.s	loc_18F68
-	move.b	#3,flips_remaining(a1)
+	move.b	#0,flips_remaining(a1)
 
 loc_18F68:
 	btst	#0,status(a1)
@@ -44675,13 +44675,13 @@ loc_24206:
 	; Make the character flip.
 	move.w	#1,inertia(a1)
 	move.b	#1,flip_angle(a1)
-	move.b	#AniIDSonAni_Walk,anim(a1)
+	move.b	#AniIDSonAni_Spring,anim(a1)
 	move.b	#0,flips_remaining(a1)
 	move.b	#4,flip_speed(a1)
 	; If this is a strong spring, then make the character flip twice.
 	btst	#1,d0
 	bne.s	loc_24236
-	move.b	#1,flips_remaining(a1)
+	move.b	#0,flips_remaining(a1);#1,flips_remaining(a1)
 
 loc_24236:
 	; Correct some details to account for the character's direction.
@@ -44898,13 +44898,13 @@ loc_24452:
 	; Make the character flip.
 	move.w	#1,inertia(a1)
 	move.b	#1,flip_angle(a1)
-	move.b	#AniIDSonAni_Walk,anim(a1)
-	move.b	#1,flips_remaining(a1)
+	move.b	#AniIDSonAni_Spring,anim(a1)
+	move.b	#0,flips_remaining(a1)
 	move.b	#8,flip_speed(a1)
 	btst	#1,d0
 	bne.s	loc_24482
 	; If this is a strong spring, then make the character flip four times.
-	move.b	#3,flips_remaining(a1)
+	move.b	#0,flips_remaining(a1)
 
 loc_24482:
 	; Correct some details to account for the character's direction.
@@ -46830,12 +46830,12 @@ loc_264BC:
 	beq.s	loc_2651E
 	move.w	#1,inertia(a1)
 	move.b	#1,flip_angle(a1)
-	move.b	#AniIDSonAni_Walk,anim(a1)
-	move.b	#1,flips_remaining(a1)
+	move.b	#AniIDSonAni_Spring,anim(a1)
+	move.b	#0,flips_remaining(a1)
 	move.b	#8,flip_speed(a1)
 	btst	#1,d0
 	bne.s	loc_2650E
-	move.b	#3,flips_remaining(a1)
+	move.b	#0,flips_remaining(a1)
 
 loc_2650E:
 	btst	#0,status(a1)
@@ -47835,12 +47835,12 @@ loc_2704C:
 	beq.s	loc_270DC
 	move.w	#1,inertia(a1)
 	move.b	#1,flip_angle(a1)
-	move.b	#AniIDSonAni_Walk,anim(a1)
-	move.b	#1,flips_remaining(a1)
+	move.b	#AniIDSonAni_Spring,anim(a1)
+	move.b	#0,flips_remaining(a1)
 	move.b	#8,flip_speed(a1)
 	btst	#1,d0
 	bne.s	+
-	move.b	#3,flips_remaining(a1)
+	move.b	#0,flips_remaining(a1)
 +
 	btst	#0,status(a1)
 	beq.s	loc_270DC
@@ -51142,12 +51142,12 @@ loc_296C2:
 	beq.s	loc_29736
 	move.w	#1,inertia(a1)
 	move.b	#1,flip_angle(a1)
-	move.b	#AniIDSonAni_Walk,anim(a1)
+	move.b	#AniIDSonAni_Spring,anim(a1)
 	move.b	#0,flips_remaining(a1)
 	move.b	#4,flip_speed(a1)
 	btst	#1,d0
 	bne.s	+
-	move.b	#1,flips_remaining(a1)
+	move.b	#0,flips_remaining(a1)
 +
 	btst	#0,status(a1)
 	beq.s	loc_29736
@@ -80388,7 +80388,9 @@ Touch_Enemy:
 	cmpi.b	#AniIDSonAni_Spindash,anim(a0)
 	beq.s	+
 	cmpi.b	#AniIDSonAni_Roll,anim(a0)		; is Sonic rolling?
-	bne.w	Touch_ChkHurt		; if not, branch
+	beq.s	+		; if not, branch
+	cmpi.b	#(BlzAni_AxelT_ptr-BlazeAniData)/2,anim(a0)
+	bne.w	Touch_ChkHurt
 +
 	btst	#6,render_flags(a1)
 	beq.s	Touch_Enemy_Part2
@@ -82447,11 +82449,11 @@ BuildHUD:
 +
 	move.w	#128+16,d3	; set X pos
 	move.w	#128+136,d2	; set Y pos
-	move.b	(Boost_Amount).w, d1
-	cmpi.b  #160, d1
+	move.w	(Boost_Amount).w, d1
+	cmpi.w  #160, d1
 	blo		+
-	move.b	#0, d1
-	move.b	d1, (Boost_Amount).w
+	move.w	#160, d1
+	move.w	d1, (Boost_Amount).w
 +
 	lsr.b	#4, d1 ; divide by 16
 	lea	(HUD_MapUnc_40A9A).l,a1

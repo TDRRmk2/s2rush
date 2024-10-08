@@ -329,7 +329,7 @@ Obj01_MdNormal:
 	jsr	(ObjectMove).l
 	bsr.w	AnglePos
 	bsr.w	Sonic_SlopeRepel
-
+	bsr		Sonic_Abilities
 return_1A2DE:
 	rts
 ; End of subroutine Obj01_MdNormal
@@ -338,6 +338,7 @@ return_1A2DE:
 ; Called if Sonic is airborne, but not in a ball (thus, probably not jumping)
 ; loc_1A2E0: Obj01_MdJump
 Obj01_MdAir:
+	bsr		Sonic_Tricks
 	bsr.w	Sonic_JumpHeight
 	bsr.w	Sonic_ChgJumpDir
 	bsr.w	Sonic_LevelBound
@@ -2684,4 +2685,14 @@ return_1B89A:
 Sonic_AirAbilities:
 	cmp.b	#2, id(a0)
 	beq		Blaze_AirAbilities	; use Blaze version
+	rts
+
+Sonic_Tricks:
+	cmp.b	#2, id(a0)
+	beq		Blaze_Tricks	; use Blaze version
+	rts
+
+Sonic_Abilities:
+	cmp.b	#2, id(a0)
+	beq		Blaze_Abilities	; use Blaze version
 	rts
