@@ -63,10 +63,10 @@ Obj02_Init_Continued:
 	move.b	#30,air_left(a0)
 	subi.w	#$20,x_pos(a0)
 	addi_.w	#4,y_pos(a0)
-	move.w	#0,(Sonic_Pos_Record_Index).w
+	move.w	#0,(Tails_Pos_Record_Index).w
 
 	move.w	#$3F,d2
--	bsr.w	Sonic_RecordPos
+-	bsr.w	Blaze_RecordPos
 	subq.w	#4,a1
 	move.l	#0,(a1)
 	dbf	d2,-
@@ -261,6 +261,7 @@ BlzAni_Trick1_ptr:		offsetTableEntry.w BlzAni_Trick1	; 37 ; $25
 BlzAni_Trick2_ptr:		offsetTableEntry.w BlzAni_Trick2	; 38 ; $26
 BlzAni_Trick3_ptr:		offsetTableEntry.w BlzAni_Trick3	; 39 ; $27
 BlzAni_SpringFall_ptr:	offsetTableEntry.w BlzAni_SpringFall	; 40 ; $28
+BlzAni_AirBoost_ptr:	offsetTableEntry.w BlzAni_AirBoost	; 41 ; $29
 
 BlzAni_Walk:	dc.b $FF, $D, $E, $F, $10, $11, $12, $FF
 	rev02even
@@ -340,6 +341,8 @@ BlzAni_Trick2:	dc.b 7, $41, $77, $FE, 1
 BlzAni_Trick3:	dc.b 7, $41, $5A, $FE, 1
 	rev02even
 BlzAni_SpringFall: dc.b 5,$7D,$7E,$FF
+	rev02even
+BlzAni_AirBoost: dc.b $10,$8B,$FF
 	even
 
 Blaze_HoverSpd = 32
@@ -386,13 +389,13 @@ Blaze_Abilities:
 	beq		.stopBoosting
 	btst 	#button_A, (Ctrl_1_Held_Logical).w
 	beq		.stopBoosting
-	;tst.b 	(IsBoosting).w
-	;bne		.alreadyBoosting
-	;cmpi.w	#Boost_Increase, (Boost_Amount).w
-	;blt 	.stopBoosting
-	;subi.w	#Boost_Increase-1, (Boost_Amount).w
-	;move.b	#1, (IsBoosting).w
-;.alreadyBoosting:
+	tst.b 	(IsBoosting).w
+	bne		.alreadyBoosting
+	cmpi.w	#Boost_Increase, (Boost_Amount).w
+	blt 	.stopBoosting
+	subi.w	#Boost_Increase-1, (Boost_Amount).w
+	move.b	#1, (IsBoosting).w
+.alreadyBoosting:
 	subq.w	#1, (Boost_Amount).w
 	move.w	#Blaze_BoostSpd, d0
 	move.w	inertia(a0), d1
@@ -436,11 +439,44 @@ Blaze_AirAbilities:
 	cmpi.b 	#(BlzAni_Roll2_ptr-BlazeAniData)/2, d0
 	bhi		.ret
 	move.b	(Ctrl_1_Press_Logical).w, d0
+	btst	#button_A, d0
+	bne		.doAirBoost
 	btst	#button_C, d0
 	bne     .doHover
 	btst	#button_B, d0
 	bne		.doAxelT
 	bra		.ret
+.doAirBoost:
+	cmpi.w	#Boost_Increase, (Boost_Amount).w
+	blt 	.ret
+
+	move.w	x_pos(a0), d0
+	move.w	y_pos(a0), d1
+	subq.w	#8, d1
+	bsr 	Blaze_SpawnFlame_NoTimer
+	addq.w	#8, d1
+	bsr 	Blaze_SpawnFlame_NoTimer
+	addq.w	#8, d1
+	bsr 	Blaze_SpawnFlame_NoTimer
+
+	subi.w	#Boost_Increase, (Boost_Amount).w
+	move.w	#-60, y_vel(a0)
+	move.w	#Blaze_BoostSpd, d0
+	move.w	x_vel(a0), d1
+	move.b	#(BlzAni_AirBoost_ptr-BlazeAniData)/2, anim(a0)
+	btst	#0, status(a0)
+	beq		.faceRight
+	neg.w	d0
+	cmp.w	d0, d1
+	ble		.noSpeedSet
+	bra		.doneFace
+.faceRight:
+	cmp.w	d0, d1
+	bge		.noSpeedSet
+.doneFace:
+	move.w	d0, x_vel(a0)
+.noSpeedSet:
+	bra 	.ret
 .doHover:
 	move.b	#(BlzAni_Hover_ptr-BlazeAniData)/2, anim(a0)
 	bra 	.ret
@@ -502,11 +538,11 @@ Blaze_SpawnFlame_NoTimer:
 	movem.w	d0-d1,-(sp)
 	bsr 	AllocateObject
 	bne		Blaze_SpawnFlame_Return
-	move.b	#0, $29(a1)
+	;move.b	#0, $29(a1)
 	;btst    #6, obStatus(a0)
 	;beq		.NotUnderwater
-	move.b	#1, $29(a1)
-.NotUnderwater:
+	;move.b	#1, $29(a1)
+;.NotUnderwater:
 	movem.w	(sp)+,d0-d1
 	_move.b	#ObjID_BlazeFlame, id(a1)
 	move.w	d0, x_pos(a1)
@@ -515,6 +551,98 @@ Blaze_SpawnFlame_NoTimer:
 Blaze_SpawnFlame_Return:
 	movem.w	(sp)+,d0-d1
 Blaze_SpawnFlame_Return_NoPop:
+	rts
+
+Blaze_UpdateSpindash:
+	move.b	(Ctrl_1_Held_Logical).w,d0
+	btst	#button_down,d0
+	bne.w	Sonic_ChargingSpindash
+
+	; unleash the charged spindash and start rolling quickly:
+	move.b	#$E,y_radius(a0)
+	move.b	#7,x_radius(a0)
+	move.b	#AniIDSonAni_Roll,anim(a0)
+	addq.w	#5,y_pos(a0)	; add the difference between Sonic's rolling and standing heights
+	move.b	#0,spindash_flag(a0)
+	moveq	#0,d0
+	move.b	spindash_counter(a0),d0
+	add.w	d0,d0
+	move.w	BlzSpindashSpeeds(pc,d0.w),inertia(a0)
+	tst.b	(Super_Sonic_flag).w
+	beq.s	+
+	move.w	BlzSpindashSpeedsSuper(pc,d0.w),inertia(a0)
++
+	; Determine how long to lag the camera for.
+	; Notably, the faster Sonic goes, the less the camera lags.
+	; This is seemingly to prevent Sonic from going off-screen.
+	move.w	inertia(a0),d0
+	subi.w	#$800,d0 ; $800 is the lowest spin dash speed
+    if fixBugs
+	; To fix a bug in 'ScrollHoriz', we need an extra variable, so this
+	; code has been modified to make the delay value only a single byte.
+	; The lower byte has been repurposed to hold a copy of the position
+	; array index at the time that the spin dash was released.
+	; This is used by the fixed 'ScrollHoriz'.
+	lsr.w	#7,d0
+	neg.w	d0
+	addi.w	#$20,d0
+	move.b	d0,(Horiz_scroll_delay_val_P2).w
+	; Back up the position array index for later.
+	move.b	(Sonic_Pos_Record_Index+1).w,(Horiz_scroll_delay_val_P2+1).w
+    else
+	add.w	d0,d0
+	andi.w	#$1F00,d0 ; This line is not necessary, as none of the removed bits are ever set in the first place
+	neg.w	d0
+	addi.w	#$2000,d0
+	move.w	d0,(Horiz_scroll_delay_val_P2).w
+    endif
+
+	btst	#0,status(a0)
+	beq.s	+
+	neg.w	inertia(a0)
++
+	bset	#2,status(a0)
+	move.b	#0,(Tails_Dust+anim).w
+	move.w	#SndID_SpindashRelease,d0	; spindash zoom sound
+	jsr	(PlaySound).l
+	bra		Obj01_Spindash_ResetScr
+; ===========================================================================
+; word_1AD0C:
+BlzSpindashSpeeds:
+	dc.w  $800	; 0
+	dc.w  $880	; 1
+	dc.w  $900	; 2
+	dc.w  $980	; 3
+	dc.w  $A00	; 4
+	dc.w  $A80	; 5
+	dc.w  $B00	; 6
+	dc.w  $B80	; 7
+	dc.w  $C00	; 8
+; word_1AD1E:
+BlzSpindashSpeedsSuper:
+	dc.w  $B00	; 0
+	dc.w  $B80	; 1
+	dc.w  $C00	; 2
+	dc.w  $C80	; 3
+	dc.w  $D00	; 4
+	dc.w  $D80	; 5
+	dc.w  $E00	; 6
+	dc.w  $E80	; 7
+	dc.w  $F00	; 8
+
+Blaze_RecordPos:
+	move.w	(Tails_Pos_Record_Index).w,d0
+	lea	(Tails_Pos_Record_Buf).w,a1
+	lea	(a1,d0.w),a1
+	move.w	x_pos(a0),(a1)+
+	move.w	y_pos(a0),(a1)+
+	addq.b	#4,(Tails_Pos_Record_Index+1).w
+
+	;lea	(Tails_Stat_Record_Buf).w,a1
+	;lea	(a1,d0.w),a1
+	;move.w	(Ctrl_1_Logical).w,(a1)+
+	;move.w	status(a0),(a1)+
+
 	rts
 
 Ani_Obj62:	dc.w Ani_Obj62_Normal-Ani_Obj62

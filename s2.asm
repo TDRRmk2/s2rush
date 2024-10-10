@@ -36835,10 +36835,10 @@ Obj08_MdSpindashDust:
 	move.w	y_pos(a2),y_pos(a0)
 	move.b	status(a2),status(a0)
 	andi.b	#1,status(a0)
-	tst.b	obj08_belongs_to_tails(a0)
-	beq.s	+
-	subi_.w	#4,y_pos(a0);	; Tails is shorter than Sonic
-+
+	;tst.b	obj08_belongs_to_tails(a0)
+	;beq.s	+
+	;subi_.w	#4,y_pos(a0);	; Tails is shorter than Sonic
+;+
 	tst.b	prev_anim(a0)
 	bne.s	Obj08_Display
 	andi.w	#drawing_mask,art_tile(a0)

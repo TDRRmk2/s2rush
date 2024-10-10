@@ -192,6 +192,9 @@ Obj01_ExitChk:
 
 ; loc_1A15C:
 Sonic_RecordPos:
+	cmpi.b	#2, id(a0)
+	beq		Blaze_RecordPos
+
 	move.w	(Sonic_Pos_Record_Index).w,d0
 	lea	(Sonic_Pos_Record_Buf).w,a1
 	lea	(a1,d0.w),a1
@@ -250,14 +253,20 @@ Obj01_InWater:
 	asr.w	y_vel(a0)	; memory operands can only be shifted one bit at a time
 	asr.w	y_vel(a0)
 	beq.s	return_1A18C
+	cmpi.b	#2, id(a0)
+	beq		.isBlaze
 	move.w	#(1<<8)|(0<<0),(Sonic_Dust+anim).w	; splash animation
+	bra		.charDone
+.isBlaze:
+	move.w	#(1<<8)|(0<<0),(Tails_Dust+anim).w	; splash animation
+.charDone:
 	move.w	#SndID_Splash,d0	; splash sound
 	jmp	(PlaySound).l
 ; ---------------------------------------------------------------------------
 ; loc_1A1FE:
 Obj01_OutWater:
 	bclr	#6,status(a0) ; unset underwater flag
-	beq.s	return_1A18C ; if already above water, branch
+	beq 	return_1A18C ; if already above water, branch
 
 	movea.l	a0,a1
 	bsr.w	ResumeMusic
@@ -276,7 +285,13 @@ Obj01_OutWater:
 +
 	tst.w	y_vel(a0)
 	beq.w	return_1A18C
+	cmpi.b	#2, id(a0)
+	beq		.isBlaze
 	move.w	#(1<<8)|(0<<0),(Sonic_Dust+anim).w	; splash animation
+	bra		.charDone
+.isBlaze:
+	move.w	#(1<<8)|(0<<0),(Tails_Dust+anim).w	; splash animation
+.charDone:
 	movea.l	a0,a1
 	bsr.w	ResumeMusic
 	cmpi.w	#-$1000,y_vel(a0)
@@ -772,8 +787,15 @@ Sonic_TurnLeft:
 	jsr	(PlaySound).l
 	cmpi.b	#12,air_left(a0)
 	blo.s	return_1A744	; if he's drowning, branch to not make dust
+	cmpi.b	#2, id(a0)
+	beq		.isBlaze
 	move.b	#6,(Sonic_Dust+routine).w
 	move.b	#$15,(Sonic_Dust+mapping_frame).w
+	bra		.charDone
+.isBlaze:
+	move.b	#6,(Tails_Dust+routine).w
+	move.b	#$15,(Tails_Dust+mapping_frame).w
+.charDone:
 
 return_1A744:
 	rts
@@ -833,8 +855,15 @@ Sonic_TurnRight:
 	jsr	(PlaySound).l
 	cmpi.b	#12,air_left(a0)
 	blo.s	return_1A7C4	; if he's drowning, branch to not make dust
+	cmpi.b	#2, id(a0)
+	beq		.isBlaze
 	move.b	#6,(Sonic_Dust+routine).w
 	move.b	#$15,(Sonic_Dust+mapping_frame).w
+	bra		.charDone
+.isBlaze:
+	move.b	#6,(Tails_Dust+routine).w
+	move.b	#$15,(Tails_Dust+mapping_frame).w
+.charDone:
 
 return_1A7C4:
 	rts
@@ -1017,6 +1046,9 @@ Sonic_ChgJumpDir:
 	neg.w	d1
 	cmp.w	d1,d0	; compare new speed with top speed
 	bgt.s	+	; if new speed is less than the maximum, branch
+	add.w	d5,d0	; +++ remove this frame's acceleration change
+	cmp.w	d1,d0	; +++ compare speed with top speed
+	ble.s	+	; +++ if speed was already greater than the maximum, branch
 	move.w	d1,d0	; limit speed in air going left, even if Sonic was already going faster (speed limit/cap)
 +
 	btst	#button_right,(Ctrl_1_Held_Logical).w
@@ -1026,6 +1058,9 @@ Sonic_ChgJumpDir:
 	add.w	d5,d0	; accelerate right in the air
 	cmp.w	d6,d0	; compare new speed with top speed
 	blt.s	+	; if new speed is less than the maximum, branch
+	sub.w	d5,d0	; +++ remove this frame's acceleration change
+	cmp.w	d6,d0	; +++ compare speed with top speed
+	bge.s	+	; +++ if speed was already greater than the maximum, branch
 	move.w	d6,d0	; limit speed in air going right, even if Sonic was already going faster (speed limit/cap)
 ; Obj01_JumpMove:
 +	move.w	d0,x_vel(a0)
@@ -1413,7 +1448,13 @@ Sonic_CheckSpindash:
 	move.w	#0,spindash_counter(a0)
 	cmpi.b	#12,air_left(a0)	; if he's drowning, branch to not make dust
 	blo.s	+
+	cmpi.b	#2, id(a0)
+	beq		.isBlaze
 	move.b	#2,(Sonic_Dust+anim).w
+	bra		.charDone
+.isBlaze:
+	move.b	#2,(Tails_Dust+anim).w
+.charDone:
 +
 	bsr.w	Sonic_LevelBound
 	bsr.w	AnglePos
@@ -1431,6 +1472,8 @@ return_1AC8C:
 
 ; loc_1AC8E:
 Sonic_UpdateSpindash:
+	cmpi.b	#2, id(a0)
+	beq		Blaze_UpdateSpindash
 	move.b	(Ctrl_1_Held_Logical).w,d0
 	btst	#button_down,d0
 	bne.w	Sonic_ChargingSpindash
