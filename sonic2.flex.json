@@ -1,8 +1,33 @@
 {
     "Flex": 2,
     "name": "Sonic 2",
-    "node": "7b4b7a90-6802-40e0-b1f0-40da373a9f9b",
+    "node": "d2103a0f-278d-4e35-8cd1-59b110afa046",
     "objects": [
+        {
+            "format": "Sonic 2.js",
+            "name": "Rose",
+            "palettes": [
+                {
+                    "path": "art/palettes/Intro.bin",
+                    "length": 4
+                }
+            ],
+            "art": {
+                "path": "art/uncompressed/Intro Ibuki.bin",
+                "compression": "Uncompressed",
+                "offset": 0
+            },
+            "mappings": {
+                "path": "mappings/sprite/Intro Ibuki.asm",
+                "label": ""
+            },
+            "dplcs": {
+                "enabled": true,
+                "path": "mappings/spriteDPLC/Intro Ibuki.bin",
+                "label": ""
+            },
+            "uuid": "d2103a0f-278d-4e35-8cd1-59b110afa046"
+        },
         {
             "name": "Common",
             "children": [

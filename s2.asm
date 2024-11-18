@@ -5070,7 +5070,7 @@ Level_SetPlayerMode:
 	beq.s	+			; if yes, branch
 	tst.w	(Two_player_mode).w	; 2P mode?
 	bne.s	+			; if yes, branch
-	move.w	(Player_option).w,(Player_mode).w ; use the option chosen in the Options screen
+	move.w	#2,(Player_mode).w;(Player_option).w,(Player_mode).w ; use the option chosen in the Options screen
 	rts
 +
 	move.w	#0,(Player_mode).w	; force Sonic and Tails
@@ -27076,7 +27076,7 @@ Obj0F:
 	move.b	routine(a0),d0
 	move.w	Obj0F_Index(pc,d0.w),d1
 	jsr	Obj0F_Index(pc,d1.w)
-	bra.w	DisplaySprite
+	rts;bra.w	DisplaySprite
 ; ===========================================================================
 ; off_13612: Obj0F_States:
 Obj0F_Index:	offsetTable
@@ -27098,8 +27098,9 @@ Obj0F_Init:
 Obj0F_Main:
 	moveq	#0,d2
 	move.b	(Title_screen_option).w,d2
-	move.b	(Ctrl_1_Press).w,d0
-	or.b	(Ctrl_2_Press).w,d0
+	clr.b	d0
+	;move.b	(Ctrl_1_Press).w,d0
+	;or.b	(Ctrl_2_Press).w,d0
 	btst	#button_up,d0
 	beq.s	+
 	subq.b	#1,d2
